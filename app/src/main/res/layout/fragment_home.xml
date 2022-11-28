@@ -12,15 +12,12 @@
 
         <TextView
             android:id="@+id/welcome_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:text="@string/welcome_to_your_pokedex"
-            android:textSize="@dimen/size_header"
             app:layout_constraintBottom_toTopOf="@+id/gotopokedex_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/header_text" />
 
         <Button
             android:id="@+id/gotopokedex_button"
