@@ -78,12 +78,9 @@ class HomeFragment : Fragment() {
          */
 
         //alternatively
-//        binding.startjokesButton.setOnClickListener (
-//            Navigation.createNavigateOnClickListener(R.id.action_homeFragment2_to_jokeFragment)
-//        )
-//        binding.toOverview.setOnClickListener(
-//            Navigation.createNavigateOnClickListener(R.id.action_homeFragment2_to_jokeOverviewFragment)
-//        )
+        binding.gotopokedexButton.setOnClickListener (
+            Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_pokemonFragment)
+        )
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
