@@ -5,6 +5,10 @@ data class Pokemon(
 
     var pokemonName: String = "",
 
+    var pokemonWeight: Double = 0.0,
+
+    var pokemonHeight: Double = 0.0,
+
     var pokemonType: String = "",
 
     var imageUrl: String = "",
