@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
             numberOfOncreateViews = savedInstanceState.getInt("onCreateViews", 0)
 
         }
-        numberOfOncreates+=1
+        numberOfOncreates += 1
     }
 
     override fun onCreateView(
@@ -46,14 +46,18 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         //Step 1, use databinding to inflate the xml
-        numberOfOncreateViews+=1
+        numberOfOncreateViews += 1
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
         setOnClickListeners()
 
         setHasOptionsMenu(true)
 
-        Toast.makeText(context, "OnCreate: ${numberOfOncreates} - OCView: ${numberOfOncreateViews}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            context,
+            "OnCreate: ${numberOfOncreates} - OCView: ${numberOfOncreateViews}",
+            Toast.LENGTH_SHORT
+        ).show()
 
         return binding.root
     }
@@ -64,8 +68,10 @@ class HomeFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!,
-            requireView().findNavController())
+        return NavigationUI.onNavDestinationSelected(
+            item!!,
+            requireView().findNavController()
+        )
                 || super.onOptionsItemSelected(item)
     }
 
@@ -78,8 +84,11 @@ class HomeFragment : Fragment() {
          */
 
         //alternatively
-        binding.gotopokedexButton.setOnClickListener (
+        binding.gotopokedexButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_pokemonFragment)
+        )
+        binding.gotofavoritesButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_favoritesFragment)
         )
     }
 
