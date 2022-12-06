@@ -12,12 +12,13 @@
 
         <TextView
             android:id="@+id/welcome_textView"
+            style="@style/header_text"
             android:text="@string/welcome_to_your_pokedex"
             app:layout_constraintBottom_toTopOf="@+id/gotopokedex_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/header_text" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/gotopokedex_button"
@@ -26,9 +27,21 @@
             android:text="@string/go_to_pokedex"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcome_textView"
             tools:ignore="TextContrastCheck" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="282dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/pokedex"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pokedex" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
