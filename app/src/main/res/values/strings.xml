@@ -11,4 +11,9 @@
     <string name="my_favorites">My Favorites</string>
     <string name="about_the_pokedex">about the Pokedex App</string>
     <string name="pokedex_info">The Pokédex is an electronic device created and designed to catalog and provide information regarding the various species of Pokémon featured in the Pokémon video game, anime and manga series. The name Pokédex is a neologism including \"Pokémon\" (which itself is a portmanteau of \"pocket\" and \"monster\") and \"index\". The Japanese name is simply \"Pokémon Encyclopedia\", as it can feature every Pokémon on it, depending on the Pokédex.</string>
+    <string name="auth_client_id">kvWrPvw21IGTMYJLtJ0MtdY6q0onQqJY</string>
+    <string name="auth_domain">dev-de5zi184qp82q5mx.us.auth0.com</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="logged_in">Logged In</string>
 </resources>
