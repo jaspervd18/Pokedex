@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Pokedex</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome_to_your_pokedex">Welcome to your Pokedex</string>
     <string name="go_to_pokedex">Go to pokedex</string>
@@ -10,4 +9,6 @@
     <string name="pokedex">pokedex</string>
     <string name="bulbasaur">bulbasaur</string>
     <string name="my_favorites">My Favorites</string>
+    <string name="about_the_pokedex">about the Pokedex App</string>
+    <string name="pokedex_info">The Pokédex is an electronic device created and designed to catalog and provide information regarding the various species of Pokémon featured in the Pokémon video game, anime and manga series. The name Pokédex is a neologism including \"Pokémon\" (which itself is a portmanteau of \"pocket\" and \"monster\") and \"index\". The Japanese name is simply \"Pokémon Encyclopedia\", as it can feature every Pokémon on it, depending on the Pokédex.</string>
 </resources>

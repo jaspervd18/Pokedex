@@ -29,9 +29,6 @@ class AboutFragment : Fragment() {
         // Inflate the layout for this fragment
         val aboutFragment: View = inflater.inflate(R.layout.fragment_about, container, false)
 
-        var titletext : TextView? = aboutFragment.findViewById(R.id.aboutme_textView)
-        titletext?.text = "My title text for About"
-
         return aboutFragment
     }
 

@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/about_me"
+        android:text="@string/about_the_pokedex"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintHorizontal_weight="2"
@@ -35,12 +36,12 @@
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
-            android:id="@+id/lorem_textView"
+            android:id="@+id/pokedex_info_textView"
             style="@style/header_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lorem_ipsum"
-            android:textSize="14sp" />
+            android:text="@string/pokedex_info"
+            android:textSize="20sp" />
 
     </ScrollView>
 
