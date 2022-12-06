@@ -5,15 +5,18 @@ plugins {
 
 android {
     namespace 'com.example.pokedex'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.pokedex"
-        minSdk 19
+        minSdk 24
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        manifestPlaceholders = [auth0Domain: "dev-18w6525q.us.auth0.com", auth0Scheme: "demo"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -34,6 +37,8 @@ android {
     dataBinding {
         enabled = true
     }
+
+    namespace 'com.example.pokedex'
 }
 
 dependencies {
@@ -48,4 +53,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    //login
+    implementation 'com.auth0.android:auth0:2.+'
+    implementation 'androidx.security:security-crypto-ktx:1.1.0-alpha04'
 }
