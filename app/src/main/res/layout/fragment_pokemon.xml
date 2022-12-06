@@ -30,6 +30,7 @@
             android:layout_width="293dp"
             android:layout_height="240dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/bulbasaur"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
