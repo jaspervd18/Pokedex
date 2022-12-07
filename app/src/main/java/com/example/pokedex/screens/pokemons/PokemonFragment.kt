@@ -7,15 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.pokedex.R
 import com.example.pokedex.databinding.FragmentPokemonBinding
+import com.example.pokedex.domain.Pokemon
 
 class PokemonFragment : Fragment() {
-
-    private lateinit var viewModel: PokemonViewModel
-    private lateinit var viewModelFactory: PokemonViewModelFactory
 
     private lateinit var binding: FragmentPokemonBinding
 
@@ -27,24 +26,20 @@ class PokemonFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pokemon, container, false)
 
         // ViewModel and ViewModelFactory
-        viewModelFactory = PokemonViewModelFactory()
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(PokemonViewModel::class.java)
+        val viewModelFactory = PokemonViewModelFactory()
+//        viewModel = ViewModelProviders.of(this, viewModelFactory).get(PokemonViewModel::class.java)
+        val viewModel : PokemonViewModel by viewModels{viewModelFactory}
 
-        // Previous and Next button Listeners
-        binding.nextpokemonButton.setOnClickListener {
-            viewModel.nextPokemon()
-        }
-        binding.previouspokemonButton.setOnClickListener {
-            viewModel.previousPokemon()
-        }
+        binding.pokemonViewModel = viewModel
+        binding.setLifecycleOwner (this)
 
         // Id and Name Observers
-        viewModel.id.observe(viewLifecycleOwner, Observer { newId ->
-            binding.pokemonId.text = newId.toString()
-        })
-        viewModel.name.observe(viewLifecycleOwner, Observer { newName ->
-            binding.pokemonName.text = newName
-        })
+//        viewModel.pokemonNr.observe(viewLifecycleOwner, Observer { newId ->
+//            binding.pokemonId.text = newId.toString()
+//        })
+//        viewModel.name.observe(viewLifecycleOwner, Observer { newName ->
+//            binding.pokemonName.text = newName
+//        })
 
         return binding.root
     }

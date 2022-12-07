@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="pokemonViewModel"
             type="com.example.pokedex.screens.pokemons.PokemonViewModel" />
@@ -20,12 +21,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/pokemon"
+            android:text="@{pokemonViewModel.name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/pokemon_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{pokemonViewModel.pokemonNr}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_name" />
 
         <ImageView
             android:id="@+id/pokemon_image"
@@ -45,6 +56,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/roboto"
+            android:onClick="@{() -> pokemonViewModel.previousPokemon()}"
             android:text="@string/previous"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokemon_image"
@@ -56,21 +68,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/roboto"
+            android:onClick="@{() -> pokemonViewModel.nextPokemon()}"
             android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="@+id/previouspokemon_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/previouspokemon_button"
             tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:id="@+id/pokemon_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/pokemon_id"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pokemon_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

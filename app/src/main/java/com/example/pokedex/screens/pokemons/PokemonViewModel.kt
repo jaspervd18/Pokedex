@@ -9,20 +9,20 @@ class PokemonViewModel : ViewModel() {
 
     // Current pokemon name
     private val _name = MutableLiveData<String>()
-    val name : LiveData<String>
+    val name: LiveData<String>
         get() = _name
 
     // Current pokemon Id
-    private val _id = MutableLiveData<Int>()
-    val id : LiveData<Int>
-        get() = _id
+    private val _pokemonNr = MutableLiveData<String>()
+    val pokemonNr: LiveData<String>
+        get() = _pokemonNr
 
     private lateinit var pokemonList: MutableList<String>
 
     init {
         resetList()
         nextPokemon()
-        _id.value = 1
+        _pokemonNr.value = "001"
     }
 
     override fun onCleared() {
@@ -47,12 +47,13 @@ class PokemonViewModel : ViewModel() {
 
     fun nextPokemon() {
         _name.value = pokemonList.random()
-        _id.value = (id.value)?.plus(1)
+        _pokemonNr.value = "002"
     }
 
     fun previousPokemon() {
         _name.value = pokemonList.random()
-        _id.value = (id.value)?.minus(1)
+        _pokemonNr.value = "000"
+
     }
 
 
