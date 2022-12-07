@@ -15,11 +15,7 @@ class PokemonFragment : Fragment() {
 
     private lateinit var viewModel: PokemonViewModel
 
-    private lateinit var binding : FragmentPokemonBinding
-
-    //current pokemon name
-    private var name = "Bulbasaur"
-
+    private lateinit var binding: FragmentPokemonBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,22 +26,23 @@ class PokemonFragment : Fragment() {
         Log.i("PokemonFragment", "Called ViewModelProviders.of!")
         viewModel = ViewModelProviders.of(this).get(PokemonViewModel::class.java)
 
-        binding.pokemonName.text = name
 
-        binding.nextpokemonButton.setOnClickListener { nextPokemon() }
-        binding.previouspokemonButton.setOnClickListener { previousPokemon() }
+        binding.nextpokemonButton.setOnClickListener {
+            viewModel.nextPokemon()
+            updatePokemon()
+        }
+        binding.previouspokemonButton.setOnClickListener {
+            viewModel.previousPokemon()
+            updatePokemon()
+        }
 
+        updatePokemon()
         return binding.root
     }
 
-    private fun previousPokemon() {
-        binding.pokemonName.text = "Charmander"
+    private fun updatePokemon() {
+        binding.pokemonName.text = viewModel.name
     }
-
-    private fun nextPokemon() {
-        binding.pokemonName.text = "Pikachu"
-    }
-
 
 
 }
