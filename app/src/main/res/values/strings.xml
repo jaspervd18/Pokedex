@@ -16,4 +16,7 @@
     <string name="login">Login</string>
     <string name="logout">Logout</string>
     <string name="logged_in">Logged In</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="pokemon">Pokemon</string>
 </resources>
