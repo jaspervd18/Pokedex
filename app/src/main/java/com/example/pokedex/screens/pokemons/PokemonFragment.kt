@@ -15,6 +15,7 @@ import com.example.pokedex.databinding.FragmentPokemonBinding
 class PokemonFragment : Fragment() {
 
     private lateinit var viewModel: PokemonViewModel
+    private lateinit var viewModelFactory: PokemonViewModelFactory
 
     private lateinit var binding: FragmentPokemonBinding
 
@@ -25,8 +26,9 @@ class PokemonFragment : Fragment() {
         // Binding
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pokemon, container, false)
 
-        // ViewModel
-        viewModel = ViewModelProviders.of(this).get(PokemonViewModel::class.java)
+        // ViewModel and ViewModelFactory
+        viewModelFactory = PokemonViewModelFactory()
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(PokemonViewModel::class.java)
 
         // Previous and Next button Listeners
         binding.nextpokemonButton.setOnClickListener {
@@ -40,7 +42,6 @@ class PokemonFragment : Fragment() {
         viewModel.id.observe(viewLifecycleOwner, Observer { newId ->
             binding.pokemonId.text = newId.toString()
         })
-
         viewModel.name.observe(viewLifecycleOwner, Observer { newName ->
             binding.pokemonName.text = newName
         })
