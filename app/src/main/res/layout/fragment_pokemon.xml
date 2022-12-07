@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="pokemonViewModel"
+            type="com.example.pokedex.screens.pokemons.PokemonViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
