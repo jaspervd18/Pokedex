@@ -1,22 +1,28 @@
 package com.example.pokedex.screens.pokemons
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class PokemonViewModel : ViewModel() {
 
-    //Current pokemon name
-    var name = MutableLiveData<String>()
+    // Current pokemon name
+    private val _name = MutableLiveData<String>()
+    val name : LiveData<String>
+        get() = _name
 
-    var id = MutableLiveData<Int>()
+    // Current pokemon Id
+    private val _id = MutableLiveData<Int>()
+    val id : LiveData<Int>
+        get() = _id
 
     private lateinit var pokemonList: MutableList<String>
 
     init {
         resetList()
         nextPokemon()
-        id.value = 1
+        _id.value = 1
     }
 
     override fun onCleared() {
@@ -40,13 +46,13 @@ class PokemonViewModel : ViewModel() {
     }
 
     fun nextPokemon() {
-        name.value = pokemonList.random()
-        id.value = (id.value)?.plus(1)
+        _name.value = pokemonList.random()
+        _id.value = (id.value)?.plus(1)
     }
 
     fun previousPokemon() {
-        name.value = pokemonList.random()
-        id.value = (id.value)?.minus(1)
+        _name.value = pokemonList.random()
+        _id.value = (id.value)?.minus(1)
     }
 
 
