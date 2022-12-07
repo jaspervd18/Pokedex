@@ -19,4 +19,5 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="pokemon">Pokemon</string>
+    <string name="pokemon_id">Pokemon ID</string>
 </resources>

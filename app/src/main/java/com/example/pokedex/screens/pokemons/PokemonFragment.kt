@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.pokedex.R
 import com.example.pokedex.databinding.FragmentPokemonBinding
@@ -21,28 +22,30 @@ class PokemonFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Binding
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pokemon, container, false)
 
-        Log.i("PokemonFragment", "Called ViewModelProviders.of!")
+        // ViewModel
         viewModel = ViewModelProviders.of(this).get(PokemonViewModel::class.java)
 
-
+        // Previous and Next button Listeners
         binding.nextpokemonButton.setOnClickListener {
             viewModel.nextPokemon()
-            updatePokemon()
         }
         binding.previouspokemonButton.setOnClickListener {
             viewModel.previousPokemon()
-            updatePokemon()
         }
 
-        updatePokemon()
+        // Id and Name Observers
+        viewModel.id.observe(viewLifecycleOwner, Observer { newId ->
+            binding.pokemonId.text = newId.toString()
+        })
+
+        viewModel.name.observe(viewLifecycleOwner, Observer { newName ->
+            binding.pokemonName.text = newName
+        })
+
         return binding.root
     }
-
-    private fun updatePokemon() {
-        binding.pokemonName.text = viewModel.name
-    }
-
 
 }
