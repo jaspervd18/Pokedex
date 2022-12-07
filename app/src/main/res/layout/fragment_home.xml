@@ -7,38 +7,30 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
 
-
-        <TextView
-            android:id="@+id/welcome_textView"
-            style="@style/header_text"
-            android:text="@string/welcome_to_your_pokedex"
-            app:layout_constraintBottom_toTopOf="@+id/gotopokedex_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pokedex_logo"
-            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/gotopokedex_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="448dp"
             android:text="@string/go_to_pokedex"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/gotofavorites_button"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/welcome_textView"
-            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/pokedex_logo"
             tools:ignore="TextContrastCheck" />
 
         <ImageView
             android:id="@+id/pokedex_logo"
             android:layout_width="282dp"
             android:layout_height="83dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:contentDescription="@string/pokedex"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
