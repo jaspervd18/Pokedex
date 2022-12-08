@@ -3,6 +3,9 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+
 android {
     namespace 'com.example.pokedex'
     compileSdk 33
@@ -57,4 +60,10 @@ dependencies {
     //login
     implementation 'com.auth0.android:auth0:2.+'
     implementation 'androidx.security:security-crypto-ktx:1.1.0-alpha04'
+
+    //Room
+    kapt "androidx.room:room-compiler:2.4.3"
+    implementation 'androidx.room:room-common:2.4.3'
+    implementation 'androidx.room:room-ktx:2.4.3'
+    testImplementation "androidx.room:room-testing:2.4.3"
 }
