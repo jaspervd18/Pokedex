@@ -9,6 +9,9 @@ data class DatabaseFavorite(
     @PrimaryKey(autoGenerate = true)
     var pokemonId: Long = 0L,
 
-    @ColumnInfo(name = "joke_setup")
+    @ColumnInfo(name = "pokemon_number")
+    var pokemonNr: String = "",
+
+    @ColumnInfo(name = "pokemon_name")
     var pokemonName: String = "",
 )
