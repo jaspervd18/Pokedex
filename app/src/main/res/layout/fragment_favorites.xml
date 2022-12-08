@@ -13,15 +13,26 @@
         tools:context=".screens.favorites.FavoritesFragment">
 
         <TextView
-            android:id="@+id/myFavorites"
+            android:id="@+id/myfavorites_textView"
             style="@style/header_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/my_favorites"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ScrollView
+            android:id="@+id/favorites_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/my_favorites"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myfavorites_textView">
+
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
