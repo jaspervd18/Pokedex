@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [DatabaseFavorite::class], version = 1, exportSchema = false)
 abstract class FavoriteDatabase : RoomDatabase() {
 
-    abstract val sleepDatabaseDao: FavoriteDatabaseDao
+    abstract val favoriteDatabaseDao: FavoriteDatabaseDao
 
     companion object {
 
