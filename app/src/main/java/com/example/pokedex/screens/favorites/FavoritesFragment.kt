@@ -6,19 +6,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.pokedex.R
+import com.example.pokedex.database.favorites.FavoriteDatabase
+import com.example.pokedex.database.favorites.FavoriteDatabaseDao
 import com.example.pokedex.databinding.FragmentFavoritesBinding
 
 class FavoritesFragment : Fragment() {
 
-    private lateinit var binding : FragmentFavoritesBinding
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_favorites, container, false)
+        val binding: FragmentFavoritesBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_favorites, container, false)
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = FavoriteDatabase.getInstance(application).favoriteDatabaseDao
+
+        val viewModelFactory = FavoritesViewModelFactory(dataSource, application)
+        val viewModel =
+            ViewModelProvider(this, viewModelFactory).get(FavoritesViewModel::class.java)
+
+        binding.favoritesViewModel = viewModel
+
+        binding.setLifecycleOwner(this)
+
         return binding.root
     }
 
