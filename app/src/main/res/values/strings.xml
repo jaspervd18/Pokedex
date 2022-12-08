@@ -17,7 +17,8 @@
     <string name="logout">Logout</string>
     <string name="logged_in">Logged In</string>
     <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="previous">Prev</string>
     <string name="pokemon">Pokemon</string>
     <string name="pokemon_id">Pokemon ID</string>
+    <string name="favorite">Favorite</string>
 </resources>
