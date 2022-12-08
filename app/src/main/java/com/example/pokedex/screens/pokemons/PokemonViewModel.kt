@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 
 class PokemonViewModel : ViewModel() {
 
+    private var counter = 0
+
     // Current pokemon name
     private val _name = MutableLiveData<String>()
     val name: LiveData<String>
@@ -47,13 +49,14 @@ class PokemonViewModel : ViewModel() {
 
     fun nextPokemon() {
         _name.value = pokemonList.random()
-        _pokemonNr.value = "002"
+        counter = counter.plus(1)
+        _pokemonNr.value = counter.toString().padStart(3, '0')
     }
 
     fun previousPokemon() {
         _name.value = pokemonList.random()
-        _pokemonNr.value = "000"
-
+        counter = counter.minus(1)
+        _pokemonNr.value = counter.toString().padStart(3, '0')
     }
 
 
