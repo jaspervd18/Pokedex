@@ -7,12 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.pokedex.R
+import com.example.pokedex.database.favorites.FavoriteDatabase
 import com.example.pokedex.databinding.FragmentPokemonBinding
 
 class PokemonFragment : Fragment() {
 
-    private lateinit var binding: FragmentPokemonBinding
+    lateinit var binding: FragmentPokemonBinding
+    lateinit var viewModel: PokemonViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,12 +26,24 @@ class PokemonFragment : Fragment() {
         // Binding
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pokemon, container, false)
 
+        //Get an instance of the appContext to setup the database
+        val appContext = requireNotNull(this.activity).application
+        val dataSource = FavoriteDatabase.getInstance(appContext).favoriteDatabaseDao
+
         // ViewModel and ViewModelFactory
-        val viewModelFactory = PokemonViewModelFactory()
-        val viewModel : PokemonViewModel by viewModels{viewModelFactory}
+        val viewModelFactory = PokemonViewModelFactory(dataSource, appContext)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(PokemonViewModel::class.java)
 
         binding.pokemonViewModel = viewModel
-        binding.setLifecycleOwner (this)
+        binding.setLifecycleOwner(this)
+
+        viewModel.saveEvent.observe(viewLifecycleOwner, Observer {
+                saveEvent -> if(saveEvent){
+            viewModel.favoritePokemon(binding.pokemonName.text.toString())
+            //navigate back to the joke screen
+            viewModel.saveEventDone()
+        }
+        })
 
         return binding.root
     }

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="pokemonViewModel"
             type="com.example.pokedex.screens.pokemons.PokemonViewModel" />
@@ -81,6 +80,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:text="@string/favorite"
+            android:onClickListener="@{() -> pokemonViewModel.saveFavoriteClick()}"
             app:layout_constraintBottom_toBottomOf="@+id/previouspokemon_button"
             app:layout_constraintEnd_toStartOf="@+id/nextpokemon_button"
             app:layout_constraintStart_toEndOf="@+id/previouspokemon_button"

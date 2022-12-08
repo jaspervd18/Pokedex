@@ -26,7 +26,6 @@ class FavoritesAdapter(val clickListener: FavoritesListener) :
 class ViewHolder(val binding: FavoriteListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(clickListener: FavoritesListener, item: DatabaseFavorite) {
-        binding.pokemonNumberTextView.text = item.pokemonNr
         binding.pokemonNameTextView.text = item.pokemonName
 
         binding.favorite = item

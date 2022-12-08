@@ -1,11 +1,15 @@
 package com.example.pokedex.screens.pokemons
 
-import android.util.Log
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.pokedex.database.favorites.DatabaseFavorite
+import com.example.pokedex.database.favorites.FavoriteDatabaseDao
+import kotlinx.coroutines.launch
 
-class PokemonViewModel : ViewModel() {
+class PokemonViewModel(val database: FavoriteDatabaseDao, application: Application): AndroidViewModel(application) {
 
     private var counter = 0
 
@@ -19,12 +23,17 @@ class PokemonViewModel : ViewModel() {
     val pokemonNr: LiveData<String>
         get() = _pokemonNr
 
+    private val _saveEvent = MutableLiveData<Boolean>()
+    val saveEvent: LiveData<Boolean>
+        get() = _saveEvent
+
     private lateinit var pokemonList: MutableList<String>
 
     init {
         resetList()
         nextPokemon()
         _pokemonNr.value = "001"
+        _saveEvent.value = false
     }
 
     override fun onCleared() {
@@ -57,6 +66,27 @@ class PokemonViewModel : ViewModel() {
         _name.value = pokemonList.random()
         counter = counter.minus(1)
         _pokemonNr.value = counter.toString().padStart(3, '0')
+    }
+
+    fun saveFavoriteClick(){
+        _saveEvent.value = true
+    }
+
+    fun saveEventDone(){
+        _saveEvent.value = false
+    }
+
+    fun favoritePokemon(newFavorite : String) {
+        viewModelScope.launch{
+            val databaseFavorite = DatabaseFavorite()
+            databaseFavorite.pokemonName = newFavorite
+            saveFavoriteToDatabase(databaseFavorite)
+        }
+    }
+
+    //suspend methods
+    suspend fun saveFavoriteToDatabase(newDatabaseFavorite: DatabaseFavorite){
+        database.insert(newDatabaseFavorite)
     }
 
 
