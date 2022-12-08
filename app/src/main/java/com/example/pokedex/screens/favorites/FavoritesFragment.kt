@@ -30,8 +30,9 @@ class FavoritesFragment : Fragment() {
             ViewModelProvider(this, viewModelFactory).get(FavoritesViewModel::class.java)
 
         binding.favoritesViewModel = viewModel
+        binding.lifecycleOwner = this
 
-        binding.setLifecycleOwner(this)
+        val adapter =
 
         return binding.root
     }
