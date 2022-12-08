@@ -21,8 +21,8 @@ interface FavoriteDatabaseDao {
     @Query("SELECT * from favorite_pokemons_table WHERE pokemonId = :key")
     fun get(key: Long): DatabaseFavorite
 
-//    @Query("DELETE FROM favorite_pokemons_table")
-//    fun clear()
+    @Query("DELETE FROM favorite_pokemons_table")
+    fun clear()
 
     @Query("SELECT * FROM favorite_pokemons_table ORDER BY pokemonId DESC")
     fun getAllFavorites(): LiveData<List<DatabaseFavorite>>
