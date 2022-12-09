@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import com.example.pokedex.R
 import com.example.pokedex.database.favorites.FavoriteDatabase
 import com.example.pokedex.databinding.FragmentPokemonBinding

@@ -42,16 +42,16 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 
     private fun resetList() {
         pokemonList = mutableListOf(
-            "bulbasaur",
-            "ivysaur",
-            "venusaur",
-            "squirtle",
-            "wartortle",
-            "blastoise",
-            "charmander",
-            "charmeleon",
-            "charizard",
-            "pikachu",
+            "Bulbasaur",
+            "Ivysaur",
+            "Venusaur",
+            "Squirtle",
+            "Wartortle",
+            "Blastoise",
+            "Charmander",
+            "Charmeleon",
+            "Charizard",
+            "Pikachu",
         )
         pokemonList.shuffle()
     }
