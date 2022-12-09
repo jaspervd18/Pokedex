@@ -18,8 +18,7 @@ import com.auth0.android.callback.Callback
 import com.auth0.android.provider.WebAuthProvider
 import com.auth0.android.result.Credentials
 import com.auth0.android.result.UserProfile
-
-//import timber.log.Timber
+import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass.
@@ -139,14 +138,14 @@ class LoginFragment : Fragment() {
         client.userInfo(accessToken)
             .start(object : Callback<UserProfile, AuthenticationException> {
                 override fun onFailure(exception: AuthenticationException) {
-//                    Timber.i(exception.stackTraceToString())
+                    Timber.i(exception.stackTraceToString())
                     loggedIn = false
                     setLoggedInText()
                 }
 
                 override fun onSuccess(profile: UserProfile) {
                     // We have the user's profile!
-//                    Timber.i("SUCCESS! got the user profile")
+                    Timber.i("SUCCESS! got the user profile")
                     val email = profile.email
                     val name = profile.name
                     loggedIn = true
