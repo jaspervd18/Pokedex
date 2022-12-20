@@ -7,12 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.pokedex.R
 import com.example.pokedex.database.favorites.FavoriteDatabase
-import com.example.pokedex.database.favorites.FavoriteDatabaseDao
 import com.example.pokedex.databinding.FragmentFavoritesBinding
 
 class FavoritesFragment : Fragment() {
@@ -29,21 +26,21 @@ class FavoritesFragment : Fragment() {
 
         val viewModelFactory = FavoritesViewModelFactory(dataSource, application)
         val viewModel =
-            ViewModelProvider(this, viewModelFactory).get(FavoritesViewModel::class.java)
+            ViewModelProvider(this, viewModelFactory)[FavoritesViewModel::class.java]
 
         binding.favoritesViewModel = viewModel
         binding.lifecycleOwner = this
 
         // filling the list: favorites adapter
         val adapter = FavoritesAdapter(FavoritesListener { jokeID ->
-            Toast.makeText(context, "${jokeID}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "$jokeID", Toast.LENGTH_SHORT).show()
         })
         binding.favoritesList.adapter = adapter
 
         // watch the data:
-        viewModel.favorites.observe(viewLifecycleOwner, Observer {
+        viewModel.favorites.observe(viewLifecycleOwner) {
             adapter.submitList(it)
-        })
+        }
 
         return binding.root
     }
