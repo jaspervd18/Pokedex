@@ -12,8 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screens.pokemons.PokemonFragment"
-        android:background="@drawable/card_template">
+        tools:context=".screens.pokemons.PokemonFragment">
 
         <TextView
             android:id="@+id/pokemon_name"
@@ -34,7 +33,7 @@
             android:id="@+id/pokemon_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/archivo_black"
             android:text="@{pokemonViewModel.pokemonNr}"
             android:textColor="@color/dark_gray"
@@ -46,11 +45,11 @@
             android:id="@+id/pokemon_image"
             android:layout_width="273dp"
             android:layout_height="218dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/bulbasaur"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pokemon_name"
             app:srcCompat="@drawable/bulbasaur" />
 
         <Button
@@ -58,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto"
             android:onClick="@{() -> pokemonViewModel.previousPokemon()}"
             android:text="@string/previous"
