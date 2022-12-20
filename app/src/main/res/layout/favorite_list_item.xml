@@ -18,10 +18,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="108dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:background="@drawable/pokemon_card_landscape"
+        android:background="@drawable/layout_border"
         android:onClick="@{()->clickListener.onClick(favorite)}">
 
         <ImageView
@@ -29,11 +29,14 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:contentDescription="@string/pokemon_name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bulbasaur" />
+            app:srcCompat="@drawable/bulbasaur"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/pokemon_name_textView"
@@ -46,6 +49,7 @@
             app:layout_constraintHorizontal_bias="0.092"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="@+id/imageView"
-            app:layout_constraintVertical_bias="0.032" />
+            app:layout_constraintVertical_bias="0.032"
+            tools:ignore="TextContrastCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
