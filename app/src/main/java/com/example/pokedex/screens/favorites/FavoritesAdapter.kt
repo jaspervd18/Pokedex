@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedex.database.favorites.DatabaseFavorite
 import com.example.pokedex.databinding.FavoriteListItemBinding
 
-class FavoritesAdapter(val clickListener: FavoritesListener) :
+class FavoritesAdapter(private val clickListener: FavoritesListener) :
     ListAdapter<DatabaseFavorite, ViewHolder>(FavoriteDiffCallback()) {
 
     //fill up the item you need (e.g. set texts and images)
