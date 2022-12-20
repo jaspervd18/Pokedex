@@ -43,13 +43,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/archivo_black"
-            android:text="@string/pokemon_name"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.092"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="@+id/imageView"
             app:layout_constraintVertical_bias="0.032"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            app:pokemonNameString="@{favorite}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
