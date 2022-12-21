@@ -1,4 +1,4 @@
-package com.example.pokedex.bindingUtils
+package com.example.pokedex.screens.bindingUtils
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
