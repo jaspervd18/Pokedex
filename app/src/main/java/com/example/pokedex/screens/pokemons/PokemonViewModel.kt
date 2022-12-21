@@ -6,56 +6,22 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.pokedex.database.favorites.FavoriteDatabaseDao
-import com.example.pokedex.network.PokedexProperty
 import com.example.pokedex.network.PokemonApi
-import kotlinx.coroutines.Job
+import com.example.pokedex.network.Pokemon
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class PokemonViewModel(val database: FavoriteDatabaseDao, application: Application) :
     AndroidViewModel(application) {
 
-//    private var counter = 0
 
-
-    // Current pokemon name
-//    private val _name = MutableLiveData<String>()
-//    val name: LiveData<String>
-//        get() = _name
-//
-//    // Current pokemon Id
-//    private val _pokemonNr = MutableLiveData<String>()
-//    val pokemonNr: LiveData<String>
-//        get() = _pokemonNr
-//
 //    private val _saveEvent = MutableLiveData<Boolean>()
 //    val saveEvent: LiveData<Boolean>
 //        get() = _saveEvent
-//
-//    private lateinit var pokemonList: MutableList<String>
-
 
 //    override fun onCleared() {
 //        super.onCleared()
 //    }
 //
-//    private fun resetList() {
-//        pokemonList = mutableListOf(
-//            "Bulbasaur",
-//            "Ivysaur",
-//            "Venusaur",
-//            "Squirtle",
-//            "Wartortle",
-//            "Blastoise",
-//            "Charmander",
-//            "Charmeleon",
-//            "Charizard",
-//            "Pikachu",
-//        )
-//        pokemonList.shuffle()
-//    }
 //
 //    fun nextPokemon() {
 //        _name.value = pokemonList.random()
@@ -90,14 +56,16 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 //        database.insert(newDatabaseFavorite)
 //    }
 
-    private val _response = MutableLiveData<String>()
-    val response: LiveData<String>
-        get() = _response
+    private val _status = MutableLiveData<String>()
+    val status: LiveData<String>
+        get() = _status
+
+    private val _pokemon = MutableLiveData<Pokemon>()
+    val pokemon: LiveData<Pokemon>
+        get() = _pokemon
 
     init {
-//        resetList()
 //        nextPokemon()
-//        _pokemonNr.value = "001"
 //        _saveEvent.value = false
         getPokemonFromApi()
     }
@@ -106,10 +74,13 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
     private fun getPokemonFromApi() {
         viewModelScope.launch {
             try {
-                var pokedex = PokemonApi.retrofitService.getPokedex()
-                _response.value = "Success: ${pokedex} pokemons retrieved"
+                var getPokemonDeferred = PokemonApi.retrofitService.getPokemon()
+                var result = getPokemonDeferred.await()
+                if (result !== null) {
+                    _pokemon.value = result
+                }
             } catch (e: Exception) {
-                _response.value = "Failure: ${e.message}"
+                _status.value = "Failure: ${e.message}"
             }
         }
     }
