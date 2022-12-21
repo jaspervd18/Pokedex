@@ -1,14 +1,18 @@
 package com.example.pokedex.network
 
-import com.example.pokedex.domain.Pokemon
 import com.squareup.moshi.Json
 
 data class PokedexProperty(
 //    val id: Int,
-    val name: String,
+    @Json(name="results") val pokedex: List<Pokemon>
 //    val height: Int,
 //    val weight: Int,
 //    val sprites: Sprites
+)
+
+data class Pokemon(
+    val name: String,
+//    val url: String
 )
 
 //data class Sprites(

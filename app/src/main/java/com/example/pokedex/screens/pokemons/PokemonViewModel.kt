@@ -5,8 +5,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.pokedex.database.favorites.FavoriteDatabaseDao
+import com.example.pokedex.network.PokedexProperty
 import com.example.pokedex.network.PokemonApi
-import com.example.pokedex.network.PokemonProperty
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -98,13 +98,13 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 //    }
 
     private fun getPokemonFromApi() {
-        PokemonApi.retrofitService.getPokemon().enqueue(object : Callback<PokemonProperty> {
-            override fun onFailure(call: Call<PokemonProperty>, t: Throwable) {
+        PokemonApi.retrofitService.getPokedex().enqueue(object : Callback<PokedexProperty> {
+            override fun onFailure(call: Call<PokedexProperty>, t: Throwable) {
                 _response.value = "Failure: " + t.message
             }
 
-            override fun onResponse(call: Call<PokemonProperty>, response: Response<PokemonProperty>) {
-                _response.value = "Success: ${response.body()?.name} got retrieved"
+            override fun onResponse(call: Call<PokedexProperty>, response: Response<PokedexProperty>) {
+                _response.value = "Success: ${response.body()}"
             }
         })
     }
