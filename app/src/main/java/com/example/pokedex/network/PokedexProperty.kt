@@ -3,11 +3,11 @@ package com.example.pokedex.network
 import com.example.pokedex.domain.Pokemon
 import com.squareup.moshi.Json
 
-data class PokemonProperty(
-    val id: Int,
+data class PokedexProperty(
+//    val id: Int,
     val name: String,
-    val height: Int,
-    val weight: Int,
+//    val height: Int,
+//    val weight: Int,
 //    val sprites: Sprites
 )
 
