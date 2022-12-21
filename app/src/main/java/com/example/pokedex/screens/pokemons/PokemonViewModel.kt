@@ -4,9 +4,12 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.pokedex.database.favorites.FavoriteDatabaseDao
 import com.example.pokedex.network.PokedexProperty
 import com.example.pokedex.network.PokemonApi
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,9 +19,6 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 
 //    private var counter = 0
 
-    private val _response = MutableLiveData<String>()
-    val response: LiveData<String>
-        get() = _response
 
     // Current pokemon name
 //    private val _name = MutableLiveData<String>()
@@ -36,13 +36,6 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 //
 //    private lateinit var pokemonList: MutableList<String>
 
-    init {
-//        resetList()
-//        nextPokemon()
-//        _pokemonNr.value = "001"
-//        _saveEvent.value = false
-        getPokemonFromApi()
-    }
 
 //    override fun onCleared() {
 //        super.onCleared()
@@ -97,16 +90,28 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 //        database.insert(newDatabaseFavorite)
 //    }
 
-    private fun getPokemonFromApi() {
-        PokemonApi.retrofitService.getPokedex().enqueue(object : Callback<PokedexProperty> {
-            override fun onFailure(call: Call<PokedexProperty>, t: Throwable) {
-                _response.value = "Failure: " + t.message
-            }
+    private val _response = MutableLiveData<String>()
+    val response: LiveData<String>
+        get() = _response
 
-            override fun onResponse(call: Call<PokedexProperty>, response: Response<PokedexProperty>) {
-                _response.value = "Success: ${response.body()}"
+    init {
+//        resetList()
+//        nextPokemon()
+//        _pokemonNr.value = "001"
+//        _saveEvent.value = false
+        getPokemonFromApi()
+    }
+
+
+    private fun getPokemonFromApi() {
+        viewModelScope.launch {
+            try {
+                var pokedex = PokemonApi.retrofitService.getPokedex()
+                _response.value = "Success: ${pokedex} pokemons retrieved"
+            } catch (e: Exception) {
+                _response.value = "Failure: ${e.message}"
             }
-        })
+        }
     }
 
 
