@@ -8,17 +8,17 @@ data class PokemonProperty(
     val name: String,
     val height: Int,
     val weight: Int,
-    val sprites: Sprites
+//    val sprites: Sprites
 )
 
-data class Sprites(
-    @field:Json(name = "other") val otherSprites: List<OtherSprites>
-)
-
-data class OtherSprites(
-    @field:Json(name = "official-artwork") val officialArtwork: OfficalArtwork
-)
-
-data class OfficalArtwork(
-    @Json(name="front_default") val frontDefault: String
-)
+//data class Sprites(
+//    val other: List<Other>
+//)
+//
+//data class Other(
+//    @field:Json(name = "official-artwork") val officialArtwork: OfficalArtwork
+//)
+//
+//data class OfficalArtwork(
+//    @Json(name="front_default") val frontDefault: String
+//)
