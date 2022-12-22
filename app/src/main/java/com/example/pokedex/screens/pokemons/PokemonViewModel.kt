@@ -74,7 +74,6 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
         database.insert(newDatabaseFavorite)
     }
 
-
     private fun getPokemonFromApi(id: Int) {
 
         viewModelScope.launch {

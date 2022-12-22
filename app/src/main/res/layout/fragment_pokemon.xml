@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/light_blue">
 
     <data>
 
@@ -15,68 +16,78 @@
         android:layout_height="match_parent"
         tools:context=".screens.pokemons.PokemonFragment">
 
-
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="@{pokemonViewModel.pokemon.name}"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent" />-->
-
+        <ImageView
+            android:id="@+id/pokemon_image"
+            android:layout_width="273dp"
+            android:layout_height="218dp"
+            android:contentDescription="@string/img_description"
+            app:imageUrl="@{pokemonViewModel.pokemon.sprites.other.officialArtwork.frontDefault}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bulbasaur" />
 
         <TextView
             android:id="@+id/pokemon_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/archivo_black"
-            android:text="@{pokemonViewModel.pokemon.name}"
+            android:text="@{pokemonViewModel.pokemon.name.toUpperCase()}"
             android:textColor="@color/dark_gray"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_image"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/pokemon_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:fontFamily="@font/archivo_black"
             android:text="@{String.valueOf(pokemonViewModel.pokemon.id)}"
+            android:textAlignment="viewEnd"
             android:textColor="@color/dark_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/pokemon_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/pokemon_name"
+            app:layout_constraintTop_toTopOf="@+id/pokemon_name" />
+
+        <TextView
+            android:id="@+id/pokemon_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@{String.valueOf(pokemonViewModel.pokemon.height)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokemon_name" />
 
-        <ImageView
-            android:id="@+id/pokemon_image"
-            android:layout_width="273dp"
-            android:layout_height="218dp"
+        <TextView
+            android:id="@+id/pokemon_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:contentDescription="@string/bulbasaur"
-            app:imageUrl="@{pokemonViewModel.pokemon.sprites.other.officialArtwork.frontDefault}"
+            android:text="@{String.valueOf(pokemonViewModel.pokemon.weight)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pokemon_id"
-            app:srcCompat="@drawable/bulbasaur" />
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_height" />
 
         <Button
             android:id="@+id/previouspokemon_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/roboto"
             android:onClick="@{() -> pokemonViewModel.previousPokemon()}"
             android:text="@string/previous"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pokemon_image"
             tools:ignore="TextContrastCheck" />
 
         <Button
@@ -103,21 +114,8 @@
             app:layout_constraintEnd_toStartOf="@+id/nextpokemon_button"
             app:layout_constraintStart_toEndOf="@+id/previouspokemon_button"
             app:layout_constraintTop_toTopOf="@+id/previouspokemon_button"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"
             tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:id="@+id/status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/archivo_black"
-            android:text="@{String.valueOf(pokemonViewModel.status)}"
-            android:textColor="@color/dark_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/previouspokemon_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
