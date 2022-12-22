@@ -37,11 +37,10 @@
 
         <TextView
             android:id="@+id/pokedex_info_textView"
-            style="@style/header_text"
+            style="@style/normal_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/pokedex_info"
-            android:textSize="20sp" />
+            android:text="@string/pokedex_info" />
 
     </ScrollView>
 
