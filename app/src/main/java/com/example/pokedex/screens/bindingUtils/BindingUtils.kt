@@ -14,6 +14,13 @@ fun TextView.setPokemonNameString(item: DatabaseFavorite?) {
     }
 }
 
+@BindingAdapter("pokemonNrString")
+fun TextView.setPokemonNrString(item: DatabaseFavorite?) {
+    item?.let {
+        text = item.pokemonNr.padStart(3, '0')
+    }
+}
+
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {

@@ -61,10 +61,13 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
         _saveEvent.value = false
     }
 
-    fun favoritePokemon(newFavorite: String) {
+    fun favoritePokemon() {
         viewModelScope.launch {
             val databaseFavorite = DatabaseFavorite()
-            databaseFavorite.pokemonName = newFavorite
+            databaseFavorite.pokemonName = pokemon.value?.name.toString()
+            databaseFavorite.pokemonNr = pokemon.value?.id.toString()
+            databaseFavorite.pokemonImgUrl =
+                pokemon.value?.sprites?.other?.officialArtwork?.frontDefault.toString()
             saveFavoriteToDatabase(databaseFavorite)
         }
     }

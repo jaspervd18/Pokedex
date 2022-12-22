@@ -21,7 +21,7 @@ interface FavoriteDatabaseDao {
     @Query("DELETE FROM favorite_pokemons_table")
     suspend fun clear()
 
-    @Query("SELECT * FROM favorite_pokemons_table ORDER BY pokemonId DESC")
+    @Query("SELECT * FROM favorite_pokemons_table ORDER BY pokemon_number")
     fun getAllFavorites(): LiveData<List<DatabaseFavorite>>
 
     //get the pokemon with the highest ID (last pokemon added)

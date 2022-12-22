@@ -14,4 +14,7 @@ data class DatabaseFavorite(
 
     @ColumnInfo(name = "pokemon_name")
     var pokemonName: String = "",
+
+    @ColumnInfo(name = "pokemon_img_url")
+    var pokemonImgUrl: String = ""
 )

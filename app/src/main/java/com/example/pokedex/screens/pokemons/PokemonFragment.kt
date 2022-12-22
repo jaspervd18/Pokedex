@@ -35,12 +35,11 @@ class PokemonFragment : Fragment() {
         binding.pokemonViewModel = viewModel
         binding.setLifecycleOwner(this)
 
-        viewModel.saveEvent.observe(viewLifecycleOwner, Observer {
-                saveEvent -> if(saveEvent){
-            viewModel.favoritePokemon(binding.pokemonName.text.toString())
-            //navigate back to the joke screen
-            viewModel.saveEventDone()
-        }
+        viewModel.saveEvent.observe(viewLifecycleOwner, Observer { saveEvent ->
+            if (saveEvent) {
+                viewModel.favoritePokemon()
+                viewModel.saveEventDone()
+            }
         })
 
         return binding.root
