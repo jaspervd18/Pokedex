@@ -13,7 +13,7 @@ import com.example.pokedex.screens.pokemons.PokemonApiStatus
 @BindingAdapter("pokemonNameString")
 fun TextView.setPokemonNameString(item: DatabaseFavorite?) {
     item?.let {
-        text = item.pokemonName
+        text = item.pokemonName.uppercase()
     }
 }
 
