@@ -45,7 +45,10 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
     }
 
     val displayPokemonNr = Transformations.map(pokemon) {
-        pokemon.value?.id.toString().padStart(3, '0')
+        application.applicationContext.getString(
+            R.string.display_number,
+            pokemon.value?.id.toString().padStart(3, '0')
+        )
     }
 
     fun nextPokemon() {
