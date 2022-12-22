@@ -16,7 +16,7 @@
     <string name="pokemon">Pokemon</string>
     <string name="favorite">Favorite</string>
     <string name="clear">Clear</string>
-    <string name="display_height">Height: %d</string>
-    <string name="display_weight">Weight: %d</string>
+    <string name="display_height">Height: %d\"</string>
+    <string name="display_weight">Weight: %d lbs.</string>
     <string name="display_number">Nr: %s</string>
 </resources>

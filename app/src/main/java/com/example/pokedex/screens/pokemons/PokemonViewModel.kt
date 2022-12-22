@@ -41,7 +41,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
     }
 
     val displayWeight = Transformations.map(pokemon) {
-        application.applicationContext.getString(R.string.display_height, pokemon.value?.weight)
+        application.applicationContext.getString(R.string.display_weight, pokemon.value?.weight)
     }
 
     val displayPokemonNr = Transformations.map(pokemon) {
