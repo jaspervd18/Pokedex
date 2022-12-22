@@ -46,18 +46,25 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 
     val displayPokemonNr = Transformations.map(pokemon) {
         application.applicationContext.getString(
-            R.string.display_number,
-            pokemon.value?.id.toString().padStart(3, '0')
+            R.string.display_number, pokemon.value?.id.toString().padStart(3, '0')
         )
     }
 
+    val prevButtonVisible = Transformations.map(pokemon) {
+        it?.id != 1
+    }
+
+    val nextButtonVisible = Transformations.map(pokemon) {
+        it?.id != 905
+    }
+
     fun nextPokemon() {
-        counter = counter.plus(1)
+        if (counter.plus(1) <= 905) counter = counter.plus(1)
         getPokemonFromApi(counter)
     }
 
     fun previousPokemon() {
-        counter = counter.minus(1)
+        if (counter.minus(1) >= 1) counter = counter.minus(1)
         getPokemonFromApi(counter)
     }
 

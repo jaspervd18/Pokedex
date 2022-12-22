@@ -42,6 +42,8 @@ class PokemonFragment : Fragment() {
             }
         })
 
+
+
         return binding.root
     }
 
