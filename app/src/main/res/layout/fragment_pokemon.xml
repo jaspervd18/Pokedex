@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.016" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/pokemon_id"
@@ -49,7 +49,6 @@
             android:fontFamily="@font/archivo_black"
             android:text="@{String.valueOf(pokemonViewModel.pokemon.id)}"
             android:textColor="@color/dark_gray"
-            app:layout_constraintBottom_toTopOf="@+id/pokemon_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,23 +60,51 @@
             android:layout_height="218dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/bulbasaur"
+            app:imageUrl="@{pokemonViewModel.pokemon.sprites.other.officialArtwork.frontDefault}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pokemon_name"
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_id"
             app:srcCompat="@drawable/bulbasaur" />
 
-        <TextView
-            android:id="@+id/image_url"
+        <Button
+            android:id="@+id/previouspokemon_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/archivo_black"
-            android:text="@{String.valueOf(pokemonViewModel.pokemon.sprites.other.officialArtwork.frontDefault)}"
-            android:textColor="@color/dark_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            android:fontFamily="@font/roboto"
+            android:onClick="@{() -> pokemonViewModel.previousPokemon()}"
+            android:text="@string/previous"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pokemon_image" />
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_image"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/nextpokemon_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/roboto"
+            android:onClick="@{() -> pokemonViewModel.nextPokemon()}"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="@+id/favorite_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/favorite_button"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/favorite_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:onClickListener="@{() -> pokemonViewModel.saveFavoriteClick()}"
+            android:text="@string/favorite"
+            app:layout_constraintBottom_toBottomOf="@+id/previouspokemon_button"
+            app:layout_constraintEnd_toStartOf="@+id/nextpokemon_button"
+            app:layout_constraintStart_toEndOf="@+id/previouspokemon_button"
+            app:layout_constraintTop_toTopOf="@+id/previouspokemon_button"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
             android:id="@+id/status"
@@ -90,47 +117,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_url" />
-
-        <!--        <Button-->
-        <!--            android:id="@+id/previouspokemon_button"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="32dp"-->
-        <!--            android:layout_marginTop="16dp"-->
-        <!--            android:fontFamily="@font/roboto"-->
-        <!--            android:onClick="@{() -> pokemonViewModel.previousPokemon()}"-->
-        <!--            android:text="@string/previous"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/pokemon_image"-->
-        <!--            tools:ignore="TextContrastCheck" />-->
-
-        <!--        <Button-->
-        <!--            android:id="@+id/nextpokemon_button"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginEnd="32dp"-->
-        <!--            android:fontFamily="@font/roboto"-->
-        <!--            android:onClick="@{() -> pokemonViewModel.nextPokemon()}"-->
-        <!--            android:text="@string/next"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@+id/favorite_button"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="@+id/favorite_button"-->
-        <!--            tools:ignore="TextContrastCheck" />-->
-
-        <!--        <Button-->
-        <!--            android:id="@+id/favorite_button"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:fontFamily="@font/roboto"-->
-        <!--            android:onClickListener="@{() -> pokemonViewModel.saveFavoriteClick()}"-->
-        <!--            android:text="@string/favorite"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@+id/previouspokemon_button"-->
-        <!--            app:layout_constraintEnd_toStartOf="@+id/nextpokemon_button"-->
-        <!--            app:layout_constraintStart_toEndOf="@+id/previouspokemon_button"-->
-        <!--            app:layout_constraintTop_toTopOf="@+id/previouspokemon_button"-->
-        <!--            app:layout_constraintVertical_bias="0.0"-->
-        <!--            tools:ignore="TextContrastCheck" />-->
+            app:layout_constraintTop_toBottomOf="@+id/previouspokemon_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

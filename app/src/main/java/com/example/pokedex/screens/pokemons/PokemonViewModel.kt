@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.pokedex.database.favorites.DatabaseFavorite
 import com.example.pokedex.database.favorites.FavoriteDatabaseDao
 import com.example.pokedex.network.PokemonApi
 import com.example.pokedex.network.Pokemon
@@ -16,48 +17,11 @@ import retrofit2.Response
 class PokemonViewModel(val database: FavoriteDatabaseDao, application: Application) :
     AndroidViewModel(application) {
 
+    private var counter: Int = 1
 
-//    private val _saveEvent = MutableLiveData<Boolean>()
-//    val saveEvent: LiveData<Boolean>
-//        get() = _saveEvent
-
-//    override fun onCleared() {
-//        super.onCleared()
-//    }
-//
-//
-//    fun nextPokemon() {
-//        _name.value = pokemonList.random()
-//        counter = counter.plus(1)
-//        _pokemonNr.value = counter.toString().padStart(3, '0')
-//    }
-//
-//    fun previousPokemon() {
-//        _name.value = pokemonList.random()
-//        counter = counter.minus(1)
-//        _pokemonNr.value = counter.toString().padStart(3, '0')
-//    }
-//
-//    fun saveFavoriteClick() {
-//        _saveEvent.value = true
-//    }
-//
-//    fun saveEventDone() {
-//        _saveEvent.value = false
-//    }
-//
-//    fun favoritePokemon(newFavorite: String) {
-//        viewModelScope.launch {
-//            val databaseFavorite = DatabaseFavorite()
-//            databaseFavorite.pokemonName = newFavorite
-//            saveFavoriteToDatabase(databaseFavorite)
-//        }
-//    }
-//
-//    //suspend methods
-//    suspend fun saveFavoriteToDatabase(newDatabaseFavorite: DatabaseFavorite) {
-//        database.insert(newDatabaseFavorite)
-//    }
+    private val _saveEvent = MutableLiveData<Boolean>()
+    val saveEvent: LiveData<Boolean>
+        get() = _saveEvent
 
     private val _status = MutableLiveData<String>()
     val status: LiveData<String>
@@ -68,25 +32,54 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
         get() = _pokemon
 
     init {
-//        _saveEvent.value = false
-        getPokemonFromApi()
+        _saveEvent.value = false
+        getPokemonFromApi(counter)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+    }
+
+    fun nextPokemon() {
+        counter = counter.plus(1)
+//        _pokemonNr.value = counter.toString().padStart(3, '0')
+        getPokemonFromApi(counter)
+
+    }
+
+    fun previousPokemon() {
+        counter = counter.minus(1)
+//        _pokemonNr.value = counter.toString().padStart(3, '0')
+        getPokemonFromApi(counter)
+    }
+
+    fun saveFavoriteClick() {
+        _saveEvent.value = true
+    }
+
+    fun saveEventDone() {
+        _saveEvent.value = false
+    }
+
+    fun favoritePokemon(newFavorite: String) {
+        viewModelScope.launch {
+            val databaseFavorite = DatabaseFavorite()
+            databaseFavorite.pokemonName = newFavorite
+            saveFavoriteToDatabase(databaseFavorite)
+        }
+    }
+
+    //suspend methods
+    suspend fun saveFavoriteToDatabase(newDatabaseFavorite: DatabaseFavorite) {
+        database.insert(newDatabaseFavorite)
     }
 
 
-    private fun getPokemonFromApi() {
-//        PokemonApi.retrofitService.getPokemon(2).enqueue(object : Callback<Pokemon> {
-//            override fun onFailure(call: Call<Pokemon>, t: Throwable) {
-//                _status.value = "Failure: " + t.message
-//            }
-//
-//            override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
-//                _pokemon.value = response.body()
-//            }
-//        })
+    private fun getPokemonFromApi(id: Int) {
 
         viewModelScope.launch {
             try {
-                var pokemon = PokemonApi.retrofitService.getPokemon(2)
+                var pokemon = PokemonApi.retrofitService.getPokemon(id)
                 _pokemon.value = pokemon
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"
