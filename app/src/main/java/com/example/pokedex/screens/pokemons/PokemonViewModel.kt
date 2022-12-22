@@ -68,14 +68,13 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
         get() = _pokemon
 
     init {
-//        nextPokemon()
 //        _saveEvent.value = false
         getPokemonFromApi()
     }
 
 
     private fun getPokemonFromApi() {
-        PokemonApi.retrofitService.getPokemon().enqueue(object : Callback<Pokemon> {
+        PokemonApi.retrofitService.getPokemon(2).enqueue(object : Callback<Pokemon> {
             override fun onFailure(call: Call<Pokemon>, t: Throwable) {
                 _status.value = "Failure: " + t.message
             }
