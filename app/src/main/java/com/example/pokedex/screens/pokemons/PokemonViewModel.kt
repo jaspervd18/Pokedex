@@ -10,10 +10,8 @@ import com.example.pokedex.database.favorites.FavoriteDatabaseDao
 import com.example.pokedex.network.PokemonApi
 import com.example.pokedex.network.Pokemon
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
+enum class PokemonApiStatus { LOADING, ERROR, DONE }
 class PokemonViewModel(val database: FavoriteDatabaseDao, application: Application) :
     AndroidViewModel(application) {
 
@@ -23,8 +21,8 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
     val saveEvent: LiveData<Boolean>
         get() = _saveEvent
 
-    private val _status = MutableLiveData<String>()
-    val status: LiveData<String>
+    private val _status = MutableLiveData<PokemonApiStatus>()
+    val status: LiveData<PokemonApiStatus>
         get() = _status
 
     private val _pokemon = MutableLiveData<Pokemon>()
@@ -36,20 +34,13 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
         getPokemonFromApi(counter)
     }
 
-    override fun onCleared() {
-        super.onCleared()
-    }
-
     fun nextPokemon() {
         counter = counter.plus(1)
-//        _pokemonNr.value = counter.toString().padStart(3, '0')
         getPokemonFromApi(counter)
-
     }
 
     fun previousPokemon() {
         counter = counter.minus(1)
-//        _pokemonNr.value = counter.toString().padStart(3, '0')
         getPokemonFromApi(counter)
     }
 
@@ -73,7 +64,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
     }
 
     //suspend methods
-    suspend fun saveFavoriteToDatabase(newDatabaseFavorite: DatabaseFavorite) {
+    private suspend fun saveFavoriteToDatabase(newDatabaseFavorite: DatabaseFavorite) {
         database.insert(newDatabaseFavorite)
     }
 
@@ -81,10 +72,12 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 
         viewModelScope.launch {
             try {
-                var pokemon = PokemonApi.retrofitService.getPokemon(id)
+                _status.value = PokemonApiStatus.LOADING
+                val pokemon = PokemonApi.retrofitService.getPokemon(id)
+                _status.value = PokemonApiStatus.DONE
                 _pokemon.value = pokemon
             } catch (e: Exception) {
-                _status.value = "Failure: ${e.message}"
+                _status.value = PokemonApiStatus.ERROR
             }
         }
     }
