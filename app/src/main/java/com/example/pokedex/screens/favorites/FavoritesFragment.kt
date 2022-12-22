@@ -32,8 +32,8 @@ class FavoritesFragment : Fragment() {
         binding.lifecycleOwner = this
 
         // filling the list: favorites adapter
-        val adapter = FavoritesAdapter(FavoritesListener { jokeID ->
-            Toast.makeText(context, "$jokeID", Toast.LENGTH_SHORT).show()
+        val adapter = FavoritesAdapter(FavoritesListener { pokemonID ->
+            Toast.makeText(context, "$pokemonID", Toast.LENGTH_SHORT).show()
         })
         binding.favoritesList.adapter = adapter
 

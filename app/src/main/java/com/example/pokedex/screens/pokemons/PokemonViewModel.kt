@@ -4,7 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
+import com.example.pokedex.R
 import com.example.pokedex.database.favorites.DatabaseFavorite
 import com.example.pokedex.database.favorites.FavoriteDatabaseDao
 import com.example.pokedex.network.PokemonApi
@@ -32,6 +34,18 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
     init {
         _saveEvent.value = false
         getPokemonFromApi(counter)
+    }
+
+    val displayHeight = Transformations.map(pokemon) {
+        application.applicationContext.getString(R.string.display_height, pokemon.value?.height)
+    }
+
+    val displayWeight = Transformations.map(pokemon) {
+        application.applicationContext.getString(R.string.display_height, pokemon.value?.weight)
+    }
+
+    val displayPokemonNr = Transformations.map(pokemon) {
+        pokemon.value?.id.toString().padStart(3, '0')
     }
 
     fun nextPokemon() {
