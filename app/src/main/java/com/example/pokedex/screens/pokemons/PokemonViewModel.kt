@@ -74,15 +74,24 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 
 
     private fun getPokemonFromApi() {
-        PokemonApi.retrofitService.getPokemon(2).enqueue(object : Callback<Pokemon> {
-            override fun onFailure(call: Call<Pokemon>, t: Throwable) {
-                _status.value = "Failure: " + t.message
-            }
+//        PokemonApi.retrofitService.getPokemon(2).enqueue(object : Callback<Pokemon> {
+//            override fun onFailure(call: Call<Pokemon>, t: Throwable) {
+//                _status.value = "Failure: " + t.message
+//            }
+//
+//            override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
+//                _pokemon.value = response.body()
+//            }
+//        })
 
-            override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
-                _pokemon.value = response.body()
+        viewModelScope.launch {
+            try {
+                var pokemon = PokemonApi.retrofitService.getPokemon(2)
+                _pokemon.value = pokemon
+            } catch (e: Exception) {
+                _status.value = "Failure: ${e.message}"
             }
-        })
+        }
     }
 
 
