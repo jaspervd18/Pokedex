@@ -31,7 +31,7 @@ private val retrofit = Retrofit.Builder()
 interface PokemonApiService {
 
     @GET("pokemon/1")
-    suspend fun getPokemon(): Deferred<Pokemon>
+    fun getPokemon(): Call<Pokemon>
 
 }
 

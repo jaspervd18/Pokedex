@@ -9,6 +9,9 @@ import com.example.pokedex.database.favorites.FavoriteDatabaseDao
 import com.example.pokedex.network.PokemonApi
 import com.example.pokedex.network.Pokemon
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class PokemonViewModel(val database: FavoriteDatabaseDao, application: Application) :
     AndroidViewModel(application) {
@@ -72,17 +75,15 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 
 
     private fun getPokemonFromApi() {
-        viewModelScope.launch {
-            try {
-                var getPokemonDeferred = PokemonApi.retrofitService.getPokemon()
-                var result = getPokemonDeferred.await()
-                if (result !== null) {
-                    _pokemon.value = result
-                }
-            } catch (e: Exception) {
-                _status.value = "Failure: ${e.message}"
+        PokemonApi.retrofitService.getPokemon().enqueue(object : Callback<Pokemon> {
+            override fun onFailure(call: Call<Pokemon>, t: Throwable) {
+                _status.value = "Failure: " + t.message
             }
-        }
+
+            override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
+                _pokemon.value = response.body()
+            }
+        })
     }
 
 
