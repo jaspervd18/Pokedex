@@ -9,12 +9,11 @@
     <style name="TextAppearance.Title" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:fontFamily">@font/press_start_2p</item>
         <item name="android:textSize">@dimen/text_header</item>
-        <item name="android:textColor">#555555</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
         <item name="android:textAlignment">center</item>
     </style>
 
     <style name="TextAppearance.Text" parent="TextAppearance.Title">
         <item name="android:textSize">@dimen/text_small</item>
-        <item name="android:textColor">#555555</item>
     </style>
 </resources>
