@@ -55,7 +55,8 @@
                 android:onClick="@{() -> favoritesViewModel.onClear()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/ic_delete"/>
+                app:srcCompat="@drawable/ic_delete"
+                tools:ignore="ImageContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

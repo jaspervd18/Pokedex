@@ -19,4 +19,7 @@
     <string name="display_height">Height: %d\"</string>
     <string name="display_weight">Weight: %d lbs.</string>
     <string name="display_number">Nr: %s</string>
+    <string name="previous_button">Previous</string>
+    <string name="next_button">Next button</string>
+    <string name="favorite_button">Favorite button</string>
 </resources>
