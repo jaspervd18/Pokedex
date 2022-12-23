@@ -116,16 +116,16 @@
             app:layout_constraintVertical_bias="1.0"
             tools:ignore="TextContrastCheck" />
 
-        <ImageView
-            android:id="@+id/status_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/img_description"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:pokemonApiStatus="@{pokemonViewModel.status}" />
+<!--        <ImageView-->
+<!--            android:id="@+id/status_image"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:contentDescription="@string/img_description"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:pokemonApiStatus="@{pokemonViewModel.status}" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
