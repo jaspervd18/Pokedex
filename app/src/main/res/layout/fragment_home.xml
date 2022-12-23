@@ -15,15 +15,16 @@
             android:id="@+id/gotopokedex_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="448dp"
+            android:fontFamily="@font/press_start_2p"
             android:text="@string/go_to_pokedex"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/gotofavorites_button"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokedex_logo"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="TextContrastCheck" />
 
         <ImageView
@@ -41,13 +42,13 @@
             android:id="@+id/gotofavorites_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/roboto"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/press_start_2p"
             android:text="@string/my_favorites"
-            app:layout_constraintBottom_toBottomOf="@+id/gotopokedex_button"
+            android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/gotopokedex_button"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gotopokedex_button"
             tools:ignore="TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

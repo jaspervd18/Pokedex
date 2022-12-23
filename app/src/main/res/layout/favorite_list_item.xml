@@ -43,7 +43,7 @@
 
         <TextView
             android:id="@+id/pokemon_name_textView"
-            style="@style/header_text"
+            style="@style/TextAppearance.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -60,7 +60,7 @@
 
         <TextView
             android:id="@+id/pokemon_nr_textView"
-            style="@style/normal_text"
+            style="@style/TextAppearance.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

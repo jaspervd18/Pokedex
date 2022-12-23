@@ -8,14 +8,12 @@
 
     <TextView
         android:id="@+id/aboutme_textView"
-        style="@style/header_text"
+        style="@style/TextAppearance.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="@string/about_the_pokedex"
-        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +35,7 @@
 
         <TextView
             android:id="@+id/pokedex_info_textView"
-            style="@style/normal_text"
+            style="@style/TextAppearance.Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pokedex_info" />
