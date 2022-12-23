@@ -6,10 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".LoginFragment">
 
+    <TextView
+        android:id="@+id/logged_in_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logged_in"
+        app:layout_constraintBottom_toTopOf="@+id/loginbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/loginbutton"
-        android:layout_width="378dp"
-        android:layout_height="83dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,13 +38,4 @@
         app:layout_constraintTop_toBottomOf="@+id/loginbutton"
         tools:ignore="TextContrastCheck" />
 
-    <TextView
-        android:id="@+id/logged_in_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logged_in"
-        app:layout_constraintBottom_toTopOf="@+id/loginbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
