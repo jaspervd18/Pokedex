@@ -71,7 +71,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokemon_weight"
             app:srcCompat="@drawable/ic_broken_image"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck"
+            android:elevation="10dp"/>
 
         <Button
             android:id="@+id/previouspokemon_button"
