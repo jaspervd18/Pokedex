@@ -20,7 +20,7 @@ fun TextView.setPokemonNameString(item: DatabaseFavorite?) {
 @BindingAdapter("pokemonNrString")
 fun TextView.setPokemonNrString(item: DatabaseFavorite?) {
     item?.let {
-        text = item.pokemonNr.padStart(3, '0')
+        text = item.pokemonNr.toString().padStart(3, '0')
     }
 }
 

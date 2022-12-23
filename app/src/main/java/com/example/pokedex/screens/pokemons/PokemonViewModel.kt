@@ -80,7 +80,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
         viewModelScope.launch {
             val databaseFavorite = DatabaseFavorite()
             databaseFavorite.pokemonName = pokemon.value?.name.toString()
-            databaseFavorite.pokemonNr = pokemon.value?.id.toString()
+            databaseFavorite.pokemonNr = pokemon.value?.id!!
             databaseFavorite.pokemonImgUrl =
                 pokemon.value?.sprites?.other?.officialArtwork?.frontDefault.toString()
             saveFavoriteToDatabase(databaseFavorite)

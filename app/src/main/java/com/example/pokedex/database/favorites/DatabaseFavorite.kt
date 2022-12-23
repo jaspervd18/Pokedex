@@ -10,7 +10,7 @@ data class DatabaseFavorite(
     var pokemonId: Long = 0L,
 
     @ColumnInfo(name = "pokemon_number")
-    var pokemonNr: String = "",
+    var pokemonNr: Int = 0,
 
     @ColumnInfo(name = "pokemon_name")
     var pokemonName: String = "",
