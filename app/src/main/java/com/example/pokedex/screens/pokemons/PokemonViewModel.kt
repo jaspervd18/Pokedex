@@ -50,6 +50,19 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
         )
     }
 
+    val displayPokemonTypes = Transformations.map(pokemon) {
+        if (pokemon.value?.types?.size == 1) {
+            application.applicationContext.getString(
+                R.string.display_types, pokemon.value?.types?.get(0)!!.type.name
+            )
+        } else {
+            application.applicationContext.getString(
+                    R.string.display_types,
+            pokemon.value?.types?.get(0)!!.type.name + ", " + pokemon.value?.types?.get(1)!!.type.name
+            )
+        }
+    }
+
     val prevButtonVisible = Transformations.map(pokemon) {
         it?.id != 1
     }

@@ -8,6 +8,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.pokedex.R
 import com.example.pokedex.database.favorites.DatabaseFavorite
+import com.example.pokedex.network.Pokemon
 import com.example.pokedex.screens.pokemons.PokemonApiStatus
 
 @BindingAdapter("pokemonNameString")
