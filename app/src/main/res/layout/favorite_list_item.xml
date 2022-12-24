@@ -19,10 +19,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/layout_border"
         android:onClick="@{()->clickListener.onClick(favorite)}">
 
@@ -33,7 +33,7 @@
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginTop="@dimen/spacing_normal"
             android:layout_marginBottom="@dimen/spacing_normal"
-            android:contentDescription="@string/img_description"
+            android:contentDescription="@{favorite.pokemonName}"
             app:imageUrl="@{favorite.pokemonImgUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
