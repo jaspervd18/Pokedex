@@ -57,8 +57,8 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
             )
         } else {
             application.applicationContext.getString(
-                    R.string.display_types,
-            pokemon.value?.types?.get(0)!!.type.name + ", " + pokemon.value?.types?.get(1)!!.type.name
+                R.string.display_types,
+                pokemon.value?.types?.get(0)!!.type.name + ", " + pokemon.value?.types?.get(1)!!.type.name
             )
         }
     }
@@ -102,7 +102,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 
     //suspend methods
     private suspend fun saveFavoriteToDatabase(newDatabaseFavorite: DatabaseFavorite) {
-        database.insert(newDatabaseFavorite)
+        database.run { update(newDatabaseFavorite) }
     }
 
     private fun getPokemonFromApi(id: Int) {

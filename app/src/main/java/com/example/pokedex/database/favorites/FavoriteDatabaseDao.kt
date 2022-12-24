@@ -15,8 +15,8 @@ interface FavoriteDatabaseDao {
     @Update
     suspend fun update(favorite: DatabaseFavorite)
 
-    @Query("SELECT * from favorite_pokemons_table WHERE pokemonId = :key")
-    suspend fun get(key: Long): DatabaseFavorite
+    @Query("SELECT * from favorite_pokemons_table WHERE pokemon_number = :key")
+    suspend fun get(key: Int): DatabaseFavorite
 
     @Query("DELETE FROM favorite_pokemons_table")
     suspend fun clear()
@@ -25,7 +25,7 @@ interface FavoriteDatabaseDao {
     fun getAllFavorites(): LiveData<List<DatabaseFavorite>>
 
     //get the pokemon with the highest ID (last pokemon added)
-    @Query("SELECT * FROM favorite_pokemons_table ORDER BY pokemonId DESC LIMIT 1")
+    @Query("SELECT * FROM favorite_pokemons_table ORDER BY pokemon_number DESC LIMIT 1")
     suspend fun getLastPokemon(): DatabaseFavorite?
 
 }

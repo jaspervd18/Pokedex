@@ -45,15 +45,14 @@ class ViewHolder(val binding: FavoriteListItemBinding) : RecyclerView.ViewHolder
 
 class FavoriteDiffCallback : DiffUtil.ItemCallback<DatabaseFavorite>() {
     override fun areItemsTheSame(oldItem: DatabaseFavorite, newItem: DatabaseFavorite): Boolean {
-        return oldItem.pokemonId == newItem.pokemonId
+        return oldItem.pokemonNr == newItem.pokemonNr
     }
 
     override fun areContentsTheSame(oldItem: DatabaseFavorite, newItem: DatabaseFavorite): Boolean {
         return oldItem == newItem
-        //works perfectly because it's a dataclass.
     }
 }
 
-class FavoritesListener(val clickListener: (pokemonID: Long) -> Unit) {
-    fun onClick(databaseFavorite: DatabaseFavorite) = clickListener(databaseFavorite.pokemonId)
+class FavoritesListener(val clickListener: (pokemonName: String) -> Unit) {
+    fun onClick(databaseFavorite: DatabaseFavorite) = clickListener(databaseFavorite.pokemonName)
 }
