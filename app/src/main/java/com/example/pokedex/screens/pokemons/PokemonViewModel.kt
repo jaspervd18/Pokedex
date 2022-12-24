@@ -102,7 +102,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 
     //suspend methods
     private suspend fun saveFavoriteToDatabase(newDatabaseFavorite: DatabaseFavorite) {
-        database.run { update(newDatabaseFavorite) }
+        database.run { insert(newDatabaseFavorite) }
     }
 
     private fun getPokemonFromApi(id: Int) {
