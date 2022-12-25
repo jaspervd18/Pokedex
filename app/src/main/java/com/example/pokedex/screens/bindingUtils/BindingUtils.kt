@@ -8,18 +8,18 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.pokedex.R
 import com.example.pokedex.database.favorites.DatabaseFavorite
-import com.example.pokedex.network.Pokemon
 import com.example.pokedex.screens.pokemons.PokemonApiStatus
+import com.example.pokedex.domain.Pokemon
 
 @BindingAdapter("pokemonNameString")
-fun TextView.setPokemonNameString(item: DatabaseFavorite?) {
+fun TextView.setPokemonNameString(item: Pokemon) {
     item?.let {
         text = item.pokemonName.uppercase()
     }
 }
 
 @BindingAdapter("pokemonNrString")
-fun TextView.setPokemonNrString(item: DatabaseFavorite?) {
+fun TextView.setPokemonNrString(item: Pokemon) {
     item?.let {
         text = item.pokemonNr.toString().padStart(3, '0')
     }
