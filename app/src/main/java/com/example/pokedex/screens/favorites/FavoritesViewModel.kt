@@ -14,12 +14,12 @@ class FavoritesViewModel(val database: FavoriteDatabaseDao, application: Applica
     private val favoritePokemonRepository = FavoritePokemonRepository(database)
 
     private suspend fun clear() {
-        database.clear()
+
     }
 
     fun onClear() {
         viewModelScope.launch {
-            clear()
+            favoritePokemonRepository.deleteFavoritePokemon()
             favoritePokemonRepository.refreshFavoritePokemon()
         }
     }

@@ -26,4 +26,10 @@ class FavoritePokemonRepository(private val database: FavoriteDatabaseDao) {
             }
         }
     }
+
+    suspend fun deleteFavoritePokemon() {
+        withContext(Dispatchers.IO) {
+            database.clear()
+        }
+    }
 }
