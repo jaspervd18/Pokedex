@@ -8,7 +8,7 @@
 
         <variable
             name="favorite"
-            type="com.example.pokedex.database.favorites.DatabaseFavorite" />
+            type="com.example.pokedex.domain.Pokemon" />
 
         <variable
             name="clickListener"

@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pokedex.database.favorites.DatabaseFavorite
 import com.example.pokedex.databinding.FavoriteListItemBinding
+import com.example.pokedex.domain.Pokemon
 
 class FavoritesAdapter(private val clickListener: FavoritesListener) :
-    ListAdapter<DatabaseFavorite, ViewHolder>(FavoriteDiffCallback()) {
+    ListAdapter<Pokemon, ViewHolder>(FavoriteDiffCallback()) {
 
     //fill up the item you need (e.g. set texts and images)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -25,7 +25,7 @@ class FavoritesAdapter(private val clickListener: FavoritesListener) :
 
 class ViewHolder(val binding: FavoriteListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(clickListener: FavoritesListener, item: DatabaseFavorite) {
+    fun bind(clickListener: FavoritesListener, item: Pokemon) {
         binding.favorite = item
         binding.clickListener = clickListener
         binding.executePendingBindings()
@@ -43,16 +43,16 @@ class ViewHolder(val binding: FavoriteListItemBinding) : RecyclerView.ViewHolder
 }
 
 
-class FavoriteDiffCallback : DiffUtil.ItemCallback<DatabaseFavorite>() {
-    override fun areItemsTheSame(oldItem: DatabaseFavorite, newItem: DatabaseFavorite): Boolean {
+class FavoriteDiffCallback : DiffUtil.ItemCallback<Pokemon>() {
+    override fun areItemsTheSame(oldItem: Pokemon, newItem: Pokemon): Boolean {
         return oldItem.pokemonNr == newItem.pokemonNr
     }
 
-    override fun areContentsTheSame(oldItem: DatabaseFavorite, newItem: DatabaseFavorite): Boolean {
+    override fun areContentsTheSame(oldItem: Pokemon, newItem: Pokemon): Boolean {
         return oldItem == newItem
     }
 }
 
 class FavoritesListener(val clickListener: (pokemonName: String) -> Unit) {
-    fun onClick(databaseFavorite: DatabaseFavorite) = clickListener(databaseFavorite.pokemonName)
+    fun onClick(pokemon: Pokemon) = clickListener(pokemon.pokemonName)
 }

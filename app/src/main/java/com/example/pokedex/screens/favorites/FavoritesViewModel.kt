@@ -5,15 +5,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
 import com.example.pokedex.database.favorites.FavoriteDatabaseDao
+import com.example.pokedex.repository.FavoritePokemonRepository
 import kotlinx.coroutines.launch
 
 class FavoritesViewModel(val database: FavoriteDatabaseDao, application: Application) :
     AndroidViewModel(application) {
-    val favorites = database.getAllFavorites()
 
-    val clearButtonVisible = Transformations.map(favorites) {
-        it?.isNotEmpty()
-    }
+    private val favoritePokemonRepository = FavoritePokemonRepository(database)
 
     private suspend fun clear() {
         database.clear()
@@ -21,8 +19,15 @@ class FavoritesViewModel(val database: FavoriteDatabaseDao, application: Applica
 
     fun onClear() {
         viewModelScope.launch {
-            // Clear the database table.
             clear()
+            favoritePokemonRepository.refreshFavoritePokemon()
         }
     }
+
+    val favorites = favoritePokemonRepository.favoritePokemons
+
+    val clearButtonVisible = Transformations.map(favorites) {
+        it?.isNotEmpty()
+    }
+
 }
