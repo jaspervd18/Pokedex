@@ -33,23 +33,23 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
-@BindingAdapter("pokemonApiStatus")
-fun bindStatus(statusImageView: ImageView, status: PokemonApiStatus?) {
-    when (status) {
-        PokemonApiStatus.LOADING -> {
-            statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.loading_animation)
-        }
-        PokemonApiStatus.ERROR -> {
-            statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.connection_error)
-        }
-        PokemonApiStatus.DONE -> {
-            statusImageView.visibility = View.GONE
-        }
-        else -> {
-            statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.connection_error)
-        }
-    }
-}
+//@BindingAdapter("pokemonApiStatus")
+//fun bindStatus(statusImageView: ImageView, status: PokemonApiStatus?) {
+//    when (status) {
+//        PokemonApiStatus.LOADING -> {
+//            statusImageView.visibility = View.VISIBLE
+//            statusImageView.setImageResource(R.drawable.loading_animation)
+//        }
+//        PokemonApiStatus.ERROR -> {
+//            statusImageView.visibility = View.VISIBLE
+//            statusImageView.setImageResource(R.drawable.connection_error)
+//        }
+//        PokemonApiStatus.DONE -> {
+//            statusImageView.visibility = View.GONE
+//        }
+//        else -> {
+//            statusImageView.visibility = View.VISIBLE
+//            statusImageView.setImageResource(R.drawable.connection_error)
+//        }
+//    }
+//}

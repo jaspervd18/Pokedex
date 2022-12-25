@@ -32,7 +32,7 @@ private val retrofit = Retrofit.Builder()
 interface PokemonApiService {
 
     @GET("pokemon/{id}")
-    suspend fun getPokemonAsync(@Path("id") id: Int): Pokemon
+    fun getPokemonAsync(@Path("id") id: Int): Deferred<Pokemon>
 
 }
 

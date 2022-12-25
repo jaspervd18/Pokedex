@@ -12,6 +12,7 @@ import com.example.pokedex.database.favorites.FavoriteDatabaseDao
 import com.example.pokedex.network.PokemonApi
 import com.example.pokedex.network.Pokemon
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 enum class PokemonApiStatus { LOADING, ERROR, DONE }
 class PokemonViewModel(val database: FavoriteDatabaseDao, application: Application) :
@@ -23,8 +24,8 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
     val saveEvent: LiveData<Boolean>
         get() = _saveEvent
 
-    private val _status = MutableLiveData<PokemonApiStatus>()
-    val status: LiveData<PokemonApiStatus>
+    private val _status = MutableLiveData<String>()
+    val status: LiveData<String>
         get() = _status
 
     private val _pokemon = MutableLiveData<Pokemon>()
@@ -109,12 +110,13 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 
         viewModelScope.launch {
             try {
-                _status.value = PokemonApiStatus.LOADING
-                val pokemon = PokemonApi.retrofitService.getPokemonAsync(id)
-                _status.value = PokemonApiStatus.DONE
+//                _status.value = PokemonApiStatus.LOADING
+                val pokemon = PokemonApi.retrofitService.getPokemonAsync(id).await()
+//                _status.value = PokemonApiStatus.DONE
                 _pokemon.value = pokemon
             } catch (e: Exception) {
-                _status.value = PokemonApiStatus.ERROR
+                _status.value = e.message
+
             }
         }
     }
