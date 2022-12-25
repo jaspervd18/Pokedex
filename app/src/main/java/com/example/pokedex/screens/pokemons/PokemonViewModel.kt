@@ -110,7 +110,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
         viewModelScope.launch {
             try {
                 _status.value = PokemonApiStatus.LOADING
-                val pokemon = PokemonApi.retrofitService.getPokemon(id)
+                val pokemon = PokemonApi.retrofitService.getPokemonAsync(id)
                 _status.value = PokemonApiStatus.DONE
                 _pokemon.value = pokemon
             } catch (e: Exception) {

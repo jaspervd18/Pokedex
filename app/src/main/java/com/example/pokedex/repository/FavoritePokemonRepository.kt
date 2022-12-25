@@ -9,7 +9,7 @@ class FavoritePokemonRepository(private val database: FavoriteDatabase) {
 
 //    suspend fun refreshFavoritePokemon() {
 //        withContext(Dispatchers.IO) {
-//            val favoritePokemon = PokemonApi.retrofitService.getPokemon(1)
+//            val favoritePokemon = PokemonApi.retrofitService.getPokemonAsync(1).await()
 //        }
 //    }
 }

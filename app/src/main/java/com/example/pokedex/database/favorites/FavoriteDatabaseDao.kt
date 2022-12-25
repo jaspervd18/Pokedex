@@ -10,7 +10,7 @@ import androidx.room.Update
 @Dao
 interface FavoriteDatabaseDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(favorite: DatabaseFavorite)
 
     @Update
