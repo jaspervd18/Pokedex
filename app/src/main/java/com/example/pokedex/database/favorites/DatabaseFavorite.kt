@@ -3,16 +3,21 @@ package com.example.pokedex.database.favorites
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.pokedex.domain.Pokemon
 
 @Entity(tableName = "favorite_pokemons_table")
 data class DatabaseFavorite(
-    @PrimaryKey
-    @ColumnInfo(name = "pokemon_number")
-    var pokemonNr: Int = 0,
+    @PrimaryKey @ColumnInfo(name = "pokemon_number") var pokemonNr: Int = 0,
 
-    @ColumnInfo(name = "pokemon_name")
-    var pokemonName: String = "",
+    @ColumnInfo(name = "pokemon_name") var pokemonName: String = "",
 
-    @ColumnInfo(name = "pokemon_img_url")
-    var pokemonImgUrl: String = ""
+    @ColumnInfo(name = "pokemon_img_url") var pokemonImgUrl: String = ""
 )
+
+fun DatabaseFavorite.asDomainModel(): Pokemon {
+    return Pokemon(
+        pokemonNr = pokemonNr,
+        pokemonName = pokemonName,
+        pokemonImgUrl = pokemonImgUrl,
+    )
+}
