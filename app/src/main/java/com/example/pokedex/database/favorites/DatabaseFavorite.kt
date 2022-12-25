@@ -14,10 +14,12 @@ data class DatabaseFavorite(
     @ColumnInfo(name = "pokemon_img_url") var pokemonImgUrl: String = ""
 )
 
-fun DatabaseFavorite.asDomainModel(): Pokemon {
-    return Pokemon(
-        pokemonNr = pokemonNr,
-        pokemonName = pokemonName,
-        pokemonImgUrl = pokemonImgUrl,
-    )
+fun List<DatabaseFavorite>.asDomainModel(): List<Pokemon> {
+    return map {
+        Pokemon(
+            pokemonNr = it.pokemonNr,
+            pokemonName = it.pokemonName,
+            pokemonImgUrl = it.pokemonImgUrl,
+        )
+    }
 }

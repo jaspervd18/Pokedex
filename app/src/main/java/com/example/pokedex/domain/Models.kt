@@ -1,7 +1,7 @@
 package com.example.pokedex.domain
 
 data class Pokemon(
-    var pokemonNr: Int = 0,
-    var pokemonName: String = "",
-    var pokemonImgUrl: String = "",
+    val pokemonNr: Int = 0,
+    val pokemonName: String = "",
+    val pokemonImgUrl: String = "",
 )
