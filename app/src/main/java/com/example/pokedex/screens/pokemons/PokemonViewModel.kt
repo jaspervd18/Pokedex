@@ -24,8 +24,8 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
     val saveEvent: LiveData<Boolean>
         get() = _saveEvent
 
-    private val _status = MutableLiveData<String>()
-    val status: LiveData<String>
+    private val _status = MutableLiveData<PokemonApiStatus>()
+    val status: LiveData<PokemonApiStatus>
         get() = _status
 
     private val _pokemon = MutableLiveData<Pokemon>()
@@ -110,12 +110,12 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
 
         viewModelScope.launch {
             try {
-//                _status.value = PokemonApiStatus.LOADING
+                _status.value = PokemonApiStatus.LOADING
                 val pokemon = PokemonApi.retrofitService.getPokemonAsync(id).await()
-//                _status.value = PokemonApiStatus.DONE
+                _status.value = PokemonApiStatus.DONE
                 _pokemon.value = pokemon
             } catch (e: Exception) {
-                _status.value = e.message
+                _status.value = PokemonApiStatus.ERROR
 
             }
         }
