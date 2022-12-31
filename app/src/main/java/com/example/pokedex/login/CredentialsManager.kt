@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.pokedex.login
 
 import android.content.Context
@@ -7,7 +9,7 @@ import androidx.security.crypto.MasterKeys
 import com.auth0.android.result.Credentials
 
 object CredentialsManager {
-    private val ACCESS_TOKEN = "access_token"
+    private const val ACCESS_TOKEN = "access_token"
 
     private lateinit var editor: SharedPreferences.Editor
 

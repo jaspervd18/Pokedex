@@ -29,10 +29,6 @@ class LoginFragment : Fragment() {
     private lateinit var loggedInText: TextView
     private var loggedIn = false
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -76,9 +72,9 @@ class LoginFragment : Fragment() {
 
     private fun setLoggedInText() {
         if (loggedIn) {
-            loggedInText.text = "you're logged in"
+            loggedInText.text = getString(R.string.youre_logged_in)
         } else {
-            loggedInText.text = "not logged in"
+            loggedInText.text = getString(R.string.not_logged_in)
         }
     }
 
@@ -93,20 +89,20 @@ class LoginFragment : Fragment() {
                 requireContext(),
                 object : Callback<Credentials, AuthenticationException> {
                     // Called when there is an authentication failure
-                    override fun onFailure(exception: AuthenticationException) {
+                    override fun onFailure(error: AuthenticationException) {
                         loggedIn = false
                     }
 
                     // Called when authentication completed successfully
-                    override fun onSuccess(credentials: Credentials) {
+                    override fun onSuccess(result: Credentials) {
                         // Get the access token from the credentials object.
                         // This can be used to call APIs
-                        val accessToken = credentials.accessToken
+                        val accessToken = result.accessToken
                         Toast.makeText(context, accessToken, Toast.LENGTH_SHORT).show()
 
-                        com.example.pokedex.login.CredentialsManager.saveCredentials(
+                        CredentialsManager.saveCredentials(
                             requireContext(),
-                            credentials
+                            result
                         )
                         checkIfToken()
                         setLoggedInText()
@@ -121,7 +117,7 @@ class LoginFragment : Fragment() {
             .start(
                 requireContext(),
                 object : Callback<Void?, AuthenticationException> {
-                    override fun onSuccess(payload: Void?) {
+                    override fun onSuccess(result: Void?) {
                         Toast.makeText(context, "logout OK", Toast.LENGTH_SHORT).show()
                         loggedIn = false
                         setLoggedInText()
@@ -135,22 +131,22 @@ class LoginFragment : Fragment() {
     }
 
     private fun showUserProfile(accessToken: String) {
-        var client = AuthenticationAPIClient(account)
+        val client = AuthenticationAPIClient(account)
 
         // With the access token, call `userInfo` and get the profile from Auth0.
         client.userInfo(accessToken)
             .start(object : Callback<UserProfile, AuthenticationException> {
-                override fun onFailure(exception: AuthenticationException) {
-                    Timber.i(exception.stackTraceToString())
+                override fun onFailure(error: AuthenticationException) {
+                    Timber.i(error.stackTraceToString())
                     loggedIn = false
                     setLoggedInText()
                 }
 
-                override fun onSuccess(profile: UserProfile) {
+                override fun onSuccess(result: UserProfile) {
                     // We have the user's profile!
                     Timber.i("SUCCESS! got the user profile")
-                    val email = profile.email
-                    val name = profile.name
+                    result.email
+                    result.name
                     loggedIn = true
                     setLoggedInText()
                 }

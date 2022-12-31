@@ -15,6 +15,9 @@
     <string name="login">Login</string>
     <string name="logout">Logout</string>
     <string name="logged_in">Logged In</string>
+    <string name="youre_logged_in">You\'re logged in</string>
+    <string name="not_logged_in">Not logged in</string>
+
     <!-- Formatting String -->
     <string name="display_height">Height: %d\"</string>
     <string name="display_weight">Weight: %d lbs.</string>
