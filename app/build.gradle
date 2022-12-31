@@ -62,6 +62,12 @@ tasks.dokkaHtml.configure {
     outputDirectory.set(file("../documentation/html"))
 }
 
+tasks.withType(dokkaHtml.getClass()).configureEach {
+    pluginsMapConfiguration.set(
+            ['org.jetbrains.dokka.base.Dokkabase': ''''{'seperateInheritedMembers':'true'}''']
+    )
+}
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
