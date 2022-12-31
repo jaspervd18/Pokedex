@@ -2,9 +2,9 @@ package com.example.pokedex.screens.home
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -35,17 +35,17 @@ class HomeFragment : Fragment() {
             // Get all the game state information from the bundle, set it
             numberOfOncreates = savedInstanceState.getInt("onCreates", 0)
             numberOfOncreateViews = savedInstanceState.getInt("onCreateViews", 0)
-
         }
         numberOfOncreates += 1
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        //Step 1, use databinding to inflate the xml
+        // Step 1, use databinding to inflate the xml
         numberOfOncreateViews += 1
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
 
         Toast.makeText(
             context,
-            "OnCreate: ${numberOfOncreates} - OCView: ${numberOfOncreateViews}",
+            "OnCreate: $numberOfOncreates - OCView: $numberOfOncreateViews",
             Toast.LENGTH_SHORT
         ).show()
 
@@ -71,8 +71,8 @@ class HomeFragment : Fragment() {
         return NavigationUI.onNavDestinationSelected(
             item!!,
             requireView().findNavController()
-        )
-                || super.onOptionsItemSelected(item)
+        ) ||
+            super.onOptionsItemSelected(item)
     }
 
     private fun setOnClickListeners() {
@@ -83,7 +83,7 @@ class HomeFragment : Fragment() {
          }
          */
 
-        //alternatively
+        // alternatively
         binding.gotopokedexButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_pokemonFragment)
         )

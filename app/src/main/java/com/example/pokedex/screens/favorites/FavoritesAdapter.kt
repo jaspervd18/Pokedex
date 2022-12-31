@@ -11,7 +11,7 @@ import com.example.pokedex.domain.Pokemon
 class FavoritesAdapter(private val clickListener: FavoritesListener) :
     ListAdapter<Pokemon, ViewHolder>(FavoriteDiffCallback()) {
 
-    //fill up the item you need (e.g. set texts and images)
+    // fill up the item you need (e.g. set texts and images)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(clickListener, item)
@@ -20,7 +20,6 @@ class FavoritesAdapter(private val clickListener: FavoritesListener) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
-
 }
 
 class ViewHolder(val binding: FavoriteListItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -31,8 +30,8 @@ class ViewHolder(val binding: FavoriteListItemBinding) : RecyclerView.ViewHolder
         binding.executePendingBindings()
     }
 
-    //this way the viewHolder knows how to inflate.
-    //better than having this in the adapter.
+    // this way the viewHolder knows how to inflate.
+    // better than having this in the adapter.
     companion object {
         fun from(parent: ViewGroup): ViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
@@ -41,7 +40,6 @@ class ViewHolder(val binding: FavoriteListItemBinding) : RecyclerView.ViewHolder
         }
     }
 }
-
 
 class FavoriteDiffCallback : DiffUtil.ItemCallback<Pokemon>() {
     override fun areItemsTheSame(oldItem: Pokemon, newItem: Pokemon): Boolean {

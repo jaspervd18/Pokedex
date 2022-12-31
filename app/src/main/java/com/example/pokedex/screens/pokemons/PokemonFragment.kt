@@ -17,13 +17,14 @@ class PokemonFragment : Fragment() {
     private lateinit var viewModel: PokemonViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Binding
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pokemon, container, false)
 
-        //Get an instance of the appContext to setup the database
+        // Get an instance of the appContext to setup the database
         val appContext = requireNotNull(this.activity).application
         val dataSource = FavoriteDatabase.getInstance(appContext).favoriteDatabaseDao
 
@@ -43,5 +44,4 @@ class PokemonFragment : Fragment() {
 
         return binding.root
     }
-
 }

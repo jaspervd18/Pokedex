@@ -14,7 +14,6 @@ class FavoritesViewModel(val database: FavoriteDatabaseDao, application: Applica
     private val favoritePokemonRepository = FavoritePokemonRepository(database)
 
     private suspend fun clear() {
-
     }
 
     fun onClear() {
@@ -29,5 +28,4 @@ class FavoritesViewModel(val database: FavoriteDatabaseDao, application: Applica
     val clearButtonVisible = Transformations.map(favorites) {
         it?.isNotEmpty()
     }
-
 }

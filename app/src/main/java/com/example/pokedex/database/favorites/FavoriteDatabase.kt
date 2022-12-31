@@ -32,4 +32,3 @@ abstract class FavoriteDatabase : RoomDatabase() {
         }
     }
 }
-

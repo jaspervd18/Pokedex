@@ -11,15 +11,14 @@ import retrofit2.http.Path
 
 private const val BASE_URL = "https://pokeapi.co/api/v2/"
 
-
-//create moshi object
+// create moshi object
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
 
-//private val logger = HttpLoggingInterceptor().apply{level = HttpLoggingInterceptor.Level.BASIC}
+// private val logger = HttpLoggingInterceptor().apply{level = HttpLoggingInterceptor.Level.BASIC}
 //
-//private val client = OkHttpClient.Builder()
+// private val client = OkHttpClient.Builder()
 //    .addInterceptor(logger)
 //    .build()
 
@@ -33,7 +32,6 @@ interface PokemonApiService {
 
     @GET("pokemon/{id}")
     fun getPokemonAsync(@Path("id") id: Int): Deferred<Pokemon>
-
 }
 
 object PokemonApi {

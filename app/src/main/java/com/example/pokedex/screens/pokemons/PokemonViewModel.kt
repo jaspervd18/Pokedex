@@ -9,10 +9,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.pokedex.R
 import com.example.pokedex.database.favorites.DatabaseFavorite
 import com.example.pokedex.database.favorites.FavoriteDatabaseDao
-import com.example.pokedex.network.PokemonApi
 import com.example.pokedex.network.Pokemon
+import com.example.pokedex.network.PokemonApi
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 enum class PokemonApiStatus { LOADING, ERROR, DONE }
 class PokemonViewModel(val database: FavoriteDatabaseDao, application: Application) :
@@ -101,7 +100,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
         }
     }
 
-    //suspend methods
+    // suspend methods
     private suspend fun saveFavoriteToDatabase(newDatabaseFavorite: DatabaseFavorite) {
         database.run { insert(newDatabaseFavorite) }
     }
@@ -116,10 +115,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
                 _pokemon.value = pokemon
             } catch (e: Exception) {
                 _status.value = PokemonApiStatus.ERROR
-
             }
         }
     }
-
-
 }
