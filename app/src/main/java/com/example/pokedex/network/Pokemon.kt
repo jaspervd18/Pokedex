@@ -19,11 +19,17 @@ data class Pokemon(
     val types: List<Types>
 )
 
-
+/**
+ * Types can either contain one or two slots, hence the List
+ */
 data class Types(
     val slot: Int, val type: Type
 )
 
+/**
+ * The actual name of the type, can be the first or second type
+ * The url is not used throughout the application
+ */
 data class Type(
     val name: String, val url: String
 )
