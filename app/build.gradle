@@ -58,6 +58,10 @@ ktlint {
     }
 }
 
+tasks.dokkaHtml.configure {
+    outputDirectory.set(file("../documentation/html"))
+}
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
