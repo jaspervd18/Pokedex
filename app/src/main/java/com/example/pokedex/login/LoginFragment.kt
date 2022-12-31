@@ -65,7 +65,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun checkIfToken() {
-        val token = com.example.pokedex.login.CredentialsManager.getAccessToken(requireContext())
+        val token = CredentialsManager.getAccessToken(requireContext())
         if (token != null) {
             // checking if the token works...
             showUserProfile(token)
