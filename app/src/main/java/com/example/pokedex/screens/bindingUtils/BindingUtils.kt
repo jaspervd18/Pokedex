@@ -10,20 +10,29 @@ import com.bumptech.glide.Glide
 import com.example.pokedex.domain.Pokemon
 import com.example.pokedex.screens.pokemons.PokemonApiStatus
 
+/**
+ * Adapter will put the pokemon name in all caps
+ */
 @BindingAdapter("pokemonNameString")
 fun TextView.setPokemonNameString(item: Pokemon) {
-    item?.let {
+    item.let {
         text = item.pokemonName.uppercase()
     }
 }
 
+/**
+ * Adapter will append the pokemon Nr with zero's so that it always has 3 digits
+ */
 @BindingAdapter("pokemonNrString")
 fun TextView.setPokemonNrString(item: Pokemon) {
-    item?.let {
+    item.let {
         text = item.pokemonNr.toString().padStart(3, '0')
     }
 }
 
+/**
+ * Adapter will put the pokemon Uri to the image
+ */
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
@@ -32,6 +41,9 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
+/**
+ * Adapter will adapt the status to an image
+ */
 @BindingAdapter("pokemonApiStatus")
 fun bindStatus(statusImageView: ImageView, status: PokemonApiStatus?) {
     when (status) {
