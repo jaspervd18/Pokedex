@@ -11,9 +11,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 /**
- * Class to connect the Database and the network
- * Contains a LiveData object with Favorite Pokemon
- * Can refresh and delete favorite pokemon
+ * Class to connect the Database and the network.
+ * Contains a LiveData object with Favorite Pokemon.
+ * Can refresh and delete favorite pokemon.
  * */
 class FavoritePokemonRepository(private val database: FavoriteDatabaseDao) {
 
@@ -32,7 +32,7 @@ class FavoritePokemonRepository(private val database: FavoriteDatabaseDao) {
      * happens on the IO dispatcher. By switching to the IO dispatcher using `withContext` this
      * function is now safe to call from any thread including the Main thread.
      *
-     * To actually load the favorite pokemon for use, observe [favoritePokemons]
+     * To actually load the favorite pokemon for use, observe [favoritePokemons].
      */
     suspend fun refreshFavoritePokemon() {
         withContext(Dispatchers.IO) {

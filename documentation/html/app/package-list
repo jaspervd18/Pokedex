@@ -16,7 +16,6 @@ $dokka.location:com.example.pokedex.database.favorites/FavoriteDatabaseDao///Poi
 $dokka.location:com.example.pokedex.database.favorites/FavoriteDatabaseDao/clear/#/PointingToDeclaration/app/com.example.pokedex.database.favorites/-favorite-database-dao/clear.html
 $dokka.location:com.example.pokedex.database.favorites/FavoriteDatabaseDao/get/#kotlin.Int/PointingToDeclaration/app/com.example.pokedex.database.favorites/-favorite-database-dao/get.html
 $dokka.location:com.example.pokedex.database.favorites/FavoriteDatabaseDao/getAllFavorites/#/PointingToDeclaration/app/com.example.pokedex.database.favorites/-favorite-database-dao/get-all-favorites.html
-$dokka.location:com.example.pokedex.database.favorites/FavoriteDatabaseDao/getLastPokemon/#/PointingToDeclaration/app/com.example.pokedex.database.favorites/-favorite-database-dao/get-last-pokemon.html
 $dokka.location:com.example.pokedex.database.favorites/FavoriteDatabaseDao/insert/#com.example.pokedex.database.favorites.DatabaseFavorite/PointingToDeclaration/app/com.example.pokedex.database.favorites/-favorite-database-dao/insert.html
 $dokka.location:com.example.pokedex.database.favorites/FavoriteDatabaseDao/update/#com.example.pokedex.database.favorites.DatabaseFavorite/PointingToDeclaration/app/com.example.pokedex.database.favorites/-favorite-database-dao/update.html
 $dokka.location:com.example.pokedex.domain////PointingToDeclaration/app/com.example.pokedex.domain/index.html
@@ -31,7 +30,6 @@ $dokka.location:com.example.pokedex.login/CredentialsManager/getAccessToken/#and
 $dokka.location:com.example.pokedex.login/CredentialsManager/saveCredentials/#android.content.Context#com.auth0.android.result.Credentials/PointingToDeclaration/app/com.example.pokedex.login/-credentials-manager/save-credentials.html
 $dokka.location:com.example.pokedex.login/LoginFragment///PointingToDeclaration/app/com.example.pokedex.login/-login-fragment/index.html
 $dokka.location:com.example.pokedex.login/LoginFragment/LoginFragment/#/PointingToDeclaration/app/com.example.pokedex.login/-login-fragment/-login-fragment.html
-$dokka.location:com.example.pokedex.login/LoginFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.example.pokedex.login/-login-fragment/on-create.html
 $dokka.location:com.example.pokedex.login/LoginFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.pokedex.login/-login-fragment/on-create-view.html
 $dokka.location:com.example.pokedex.network////PointingToDeclaration/app/com.example.pokedex.network/index.html
 $dokka.location:com.example.pokedex.network//asDatabaseModel/com.example.pokedex.network.Pokemon#/PointingToDeclaration/app/com.example.pokedex.network/as-database-model.html
@@ -86,10 +84,7 @@ $dokka.location:com.example.pokedex.screens.favorites/FavoritesAdapter/onBindVie
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-adapter/on-create-view-holder.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment///PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/index.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/FavoritesFragment/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/-favorites-fragment.html
-$dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/adapter/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/adapter.html
-$dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/binding/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/binding.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/on-create-view.html
-$dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/viewModel/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/view-model.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesListener///PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-listener/index.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesListener/FavoritesListener/#kotlin.Function1[kotlin.String,kotlin.Unit]/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-listener/-favorites-listener.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesListener/clickListener/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-listener/click-listener.html
@@ -113,13 +108,9 @@ $dokka.location:com.example.pokedex.screens.home////PointingToDeclaration/app/c
 $dokka.location:com.example.pokedex.screens.home/HomeFragment///PointingToDeclaration/app/com.example.pokedex.screens.home/-home-fragment/index.html
 $dokka.location:com.example.pokedex.screens.home/HomeFragment/HomeFragment/#/PointingToDeclaration/app/com.example.pokedex.screens.home/-home-fragment/-home-fragment.html
 $dokka.location:com.example.pokedex.screens.home/HomeFragment/binding/#/PointingToDeclaration/app/com.example.pokedex.screens.home/-home-fragment/binding.html
-$dokka.location:com.example.pokedex.screens.home/HomeFragment/numberOfOncreateViews/#/PointingToDeclaration/app/com.example.pokedex.screens.home/-home-fragment/number-of-oncreate-views.html
-$dokka.location:com.example.pokedex.screens.home/HomeFragment/numberOfOncreates/#/PointingToDeclaration/app/com.example.pokedex.screens.home/-home-fragment/number-of-oncreates.html
-$dokka.location:com.example.pokedex.screens.home/HomeFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.example.pokedex.screens.home/-home-fragment/on-create.html
 $dokka.location:com.example.pokedex.screens.home/HomeFragment/onCreateOptionsMenu/#android.view.Menu#android.view.MenuInflater/PointingToDeclaration/app/com.example.pokedex.screens.home/-home-fragment/on-create-options-menu.html
 $dokka.location:com.example.pokedex.screens.home/HomeFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.pokedex.screens.home/-home-fragment/on-create-view.html
 $dokka.location:com.example.pokedex.screens.home/HomeFragment/onOptionsItemSelected/#android.view.MenuItem/PointingToDeclaration/app/com.example.pokedex.screens.home/-home-fragment/on-options-item-selected.html
-$dokka.location:com.example.pokedex.screens.home/HomeFragment/onSaveInstanceState/#android.os.Bundle/PointingToDeclaration/app/com.example.pokedex.screens.home/-home-fragment/on-save-instance-state.html
 $dokka.location:com.example.pokedex.screens.pokemons////PointingToDeclaration/app/com.example.pokedex.screens.pokemons/index.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonApiStatus.DONE///PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-api-status/-d-o-n-e/index.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonApiStatus.ERROR///PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-api-status/-e-r-r-o-r/index.html
@@ -127,7 +118,6 @@ $dokka.location:com.example.pokedex.screens.pokemons/PokemonApiStatus.LOADING///
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonApiStatus///PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-api-status/index.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment///PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/index.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment/PokemonFragment/#/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/-pokemon-fragment.html
-$dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment/binding/#/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/binding.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/on-create-view.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonViewModel///PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-view-model/index.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonViewModel/PokemonViewModel/#com.example.pokedex.database.favorites.FavoriteDatabaseDao#android.app.Application/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-view-model/-pokemon-view-model.html
@@ -152,7 +142,6 @@ $dokka.location:com.example.pokedex.screens.pokemons/PokemonViewModelFactory/cre
 $dokka.location:com.example.pokedex.screens.utils////PointingToDeclaration/app/com.example.pokedex.screens.utils/index.html
 $dokka.location:com.example.pokedex.screens.utils/AboutFragment///PointingToDeclaration/app/com.example.pokedex.screens.utils/-about-fragment/index.html
 $dokka.location:com.example.pokedex.screens.utils/AboutFragment/AboutFragment/#/PointingToDeclaration/app/com.example.pokedex.screens.utils/-about-fragment/-about-fragment.html
-$dokka.location:com.example.pokedex.screens.utils/AboutFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.example.pokedex.screens.utils/-about-fragment/on-create.html
 $dokka.location:com.example.pokedex.screens.utils/AboutFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.pokedex.screens.utils/-about-fragment/on-create-view.html
 $dokka.location:com.example.pokedex////PointingToDeclaration/app/com.example.pokedex/index.html
 $dokka.location:com.example.pokedex/MainActivity///PointingToDeclaration/app/com.example.pokedex/-main-activity/index.html
