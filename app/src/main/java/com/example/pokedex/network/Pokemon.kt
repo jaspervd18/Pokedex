@@ -1,9 +1,16 @@
 package com.example.pokedex.network
 
+import androidx.lifecycle.LiveData
 import com.example.pokedex.database.favorites.DatabaseFavorite
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+/**
+ * Gets Pokemon information from the Pokemon API Retrofit service and updates the
+ * [Pokemon] and [PokemonkApiStatus] [LiveData]. The Retrofit service returns a coroutine
+ * Deferred, which we await to get the result of the transaction.
+ * @param filter the [MarsApiFilter] that is sent as part of the web server request
+ */
 @JsonClass(generateAdapter = true)
 data class Pokemon(
     val id: Int,
