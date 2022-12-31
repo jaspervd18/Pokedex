@@ -41,6 +41,7 @@ data class Sprites(
  *  This artwork will be used throughout the whole app.
  */
 data class Others(
+    // Used to map official-artwork from the JSON to officialArtwork in our class
     @Json(name = "official-artwork") val officialArtwork: OfficialArtwork
 )
 
@@ -48,6 +49,7 @@ data class Others(
  * Official Artwork contains the String with the image URL
  */
 data class OfficialArtwork(
+    // Used to map front-default from the JSON to frontDefault in our class
     @Json(name = "front_default") val frontDefault: String
 )
 

@@ -11,6 +11,9 @@ import com.example.pokedex.R
 import com.example.pokedex.database.favorites.FavoriteDatabase
 import com.example.pokedex.databinding.FragmentPokemonBinding
 
+/**
+ * This fragment shows the status of the current selected Pokemon.
+ */
 class PokemonFragment : Fragment() {
 
     lateinit var binding: FragmentPokemonBinding
@@ -32,7 +35,10 @@ class PokemonFragment : Fragment() {
         val viewModelFactory = PokemonViewModelFactory(dataSource, appContext)
         viewModel = ViewModelProvider(this, viewModelFactory)[PokemonViewModel::class.java]
 
+        // Giving the binding access to the OverviewViewModel
         binding.pokemonViewModel = viewModel
+
+        // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
 
         viewModel.saveEvent.observe(viewLifecycleOwner) { saveEvent ->
