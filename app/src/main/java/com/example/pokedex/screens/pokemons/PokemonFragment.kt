@@ -26,15 +26,15 @@ class PokemonFragment : Fragment() {
     private lateinit var viewModel: PokemonViewModel
 
     /**
-     * Inflates the layout with Data Binding, sets its lifecycle owner to the OverviewFragment
-     * to enable Data Binding to observe LiveData, and sets up the RecyclerView with an adapter.
+     * Inflates the layout with Data Binding, sets its lifecycle owner to the PokemonFragment
+     * to enable Data Binding to observe LiveData.
      */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Binding
+        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pokemon, container, false)
 
         // Get an instance of the appContext to setup the database
