@@ -16,9 +16,19 @@ import com.example.pokedex.databinding.FragmentPokemonBinding
  */
 class PokemonFragment : Fragment() {
 
-    lateinit var binding: FragmentPokemonBinding
+    /**
+     * Initialize PokemonBinding.
+     */
+    private lateinit var binding: FragmentPokemonBinding
+    /**
+     * Initialize ViewModel.
+     */
     private lateinit var viewModel: PokemonViewModel
 
+    /**
+     * Inflates the layout with Data Binding, sets its lifecycle owner to the OverviewFragment
+     * to enable Data Binding to observe LiveData, and sets up the RecyclerView with an adapter.
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
