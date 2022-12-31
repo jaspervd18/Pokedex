@@ -14,18 +14,12 @@ import com.example.pokedex.R
  */
 class AboutFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val aboutFragment: View = inflater.inflate(R.layout.fragment_about, container, false)
-
-        return aboutFragment
+        return inflater.inflate(R.layout.fragment_about, container, false)
     }
 }
