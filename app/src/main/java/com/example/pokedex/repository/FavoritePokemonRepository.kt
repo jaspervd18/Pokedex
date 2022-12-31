@@ -10,6 +10,11 @@ import com.example.pokedex.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+/**
+ * Class to connect the Database and the network
+ * Contains a LiveData object with Favorite Pokemon
+ * Can refresh and delete favorite pokemon
+ * */
 class FavoritePokemonRepository(private val database: FavoriteDatabaseDao) {
 
     /**
