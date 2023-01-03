@@ -1,17 +1,16 @@
 <resources>
-    <string name="app_name">Pokedex</string>
+    <string name="app_name" translatable="false">Pokédex</string>
     <!-- Content description -->
-    <string name="go_to_pokedex">Go to pokedex</string>
+    <string name="go_to_pokedex">Go to pokédex</string>
     <string name="pokedex_logo">Pokedex Logo</string>
-    <string name="status_description">Error loading pokemon</string>
-    <string name="delete_all_pokemon">Delete all pokemon</string>
+    <string name="status_description">Error loading Pokémon</string>
+    <string name="delete_all_pokemon">Delete all Pokémon</string>
     <string name="my_favorites">My Favorites</string>
-    <string name="previous_button">Previous pokemon</string>
-    <string name="next_button">Next pokemon</string>
-    <string name="favorite_button">Set pokemon as favorite</string>
+    <string name="previous_button">Previous Pokémon</string>
+    <string name="next_button">Next Pokémon</string>
+    <string name="favorite_button">Add Pokémon to favorites</string>
     <!-- Headers and Text -->
-    <string name="about_the_pokedex">Pokedex App</string>
-    <string name="pokedex_info">The Pokédex is an electronic device created and designed to catalog and provide information regarding the various species of Pokémon featured in the Pokémon video game, anime and manga series. The name Pokédex is a neologism including \"Pokémon\" (which itself is a portmanteau of \"pocket\" and \"monster\") and \"index\". The Japanese name is simply \"Pokémon Encyclopedia\", as it can feature every Pokémon on it, depending on the Pokédex. \n \n This particular Pokédex shows you all the 905 Pokémon from the 8 existing generations. Scroll through all of them and find interesting data about height, weight, types,… On top of that, you can save your favorite Pokémon so they are more easily findable the next time you want to look them up. \n \n HAVE FUN!!!</string>
+    <string name="about_the_pokedex" translatable="false">Pokédex App</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>
     <string name="logged_in">Logged In</string>
@@ -21,9 +20,10 @@
     <!-- Formatting String -->
     <string name="display_height">Height: %d\"</string>
     <string name="display_weight">Weight: %d lbs.</string>
-    <string name="display_number">Nr: %s</string>
-    <string name="display_types">Type(s): %s</string>
+    <string name="display_number" translatable="false">Nr: %s</string>
+    <string name="display_types" translatable="false">Type(s): %s</string>
     <!-- Keys -->
-    <string name="auth_client_id">kvWrPvw21IGTMYJLtJ0MtdY6q0onQqJY</string>
-    <string name="auth_domain">dev-de5zi184qp82q5mx.us.auth0.com</string>
+    <string name="auth_client_id" translatable="false">kvWrPvw21IGTMYJLtJ0MtdY6q0onQqJY</string>
+    <string name="auth_domain" translatable="false">dev-de5zi184qp82q5mx.us.auth0.com</string>
+    <string name="pokedex_info">The Pokédex is an electronic device created and designed to catalog and provide information regarding the various species of Pokémon featured in the Pokémon video game, anime and manga series. The name Pokédex is a neologism including \"Pokémon\" (which itself is a portmanteau of \"pocket\" and \"monster\") and \"index\". The Japanese name is simply \"Pokémon Encyclopedia\", as it can feature every Pokémon on it, depending on the Pokédex.     This particular Pokédex shows you all the 905 Pokémon from the 8 existing generations. Scroll through all of them and find interesting data about height, weight, types,… On top of that, you can save your favorite Pokémon so they are more easily findable the next time you want to look them up.     HAVE FUN!!!</string>
 </resources>

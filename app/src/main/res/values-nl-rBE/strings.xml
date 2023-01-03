@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pokedex_info">De Pokédex is een elektronisch apparaat dat is gemaakt en ontworpen om informatie te catalogiseren en te verstrekken over de verschillende soorten Pokémon die voorkomen in de Pokémon-videogame-, anime- en mangaseries. De naam Pokédex is een neologisme dat \"Pokémon\" (dat zelf een samentrekking is van \"pocket\" en \"monster\") en \"index\" omvat. De Japanse naam is simpelweg \"Pokémon Encyclopedia\", omdat elke Pokémon erop kan staan, afhankelijk van de Pokédex.     Deze specifieke Pokédex toont je alle 905 Pokémon van de 8 bestaande generaties. Blader ze allemaal door en vind interessante gegevens over lengte, gewicht, types,… Bovendien kun je je favoriete Pokémon opslaan, zodat je ze de volgende keer dat je ze wilt opzoeken gemakkelijker kunt vinden.     VEEL PLEZIER!!!</string>
+    <string name="go_to_pokedex">Ga naar pokédex</string>
+    <string name="status_description">Fout bij laden van Pokémon</string>
+    <string name="delete_all_pokemon">Verwijder alle Pokémon</string>
+    <string name="my_favorites">Mijn favorieten</string>
+    <string name="previous_button">Vorige Pokémon</string>
+    <string name="next_button">Volgende Pokémon</string>
+    <string name="favorite_button">Voeg Pokémon toe aan favorieten</string>
+    <string name="login">Aanmelden</string>
+    <string name="logout">Afmelden</string>
+    <string name="logged_in">Aangemeld</string>
+    <string name="youre_logged_in">Je bent aangemeld</string>
+    <string name="not_logged_in">Niet aangemeld</string>
+    <string name="display_height">Lengte: %d\"</string>
+    <string name="display_weight">Gewicht: %d kg.</string>
+</resources>
