@@ -18,7 +18,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
     AndroidViewModel(application) {
 
     // Counter for keeping the current pokemon
-    private var counter: Int = 1
+    var counter: Int
 
     // The internal MutableLiveData that stores the status of the Save event
     private val _saveEvent = MutableLiveData<Boolean>()
@@ -47,6 +47,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
      */
     init {
         _saveEvent.value = false
+        counter = 1;
         getPokemonFromApi(counter)
     }
 
