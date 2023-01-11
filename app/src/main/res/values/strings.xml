@@ -26,4 +26,6 @@
     <string name="auth_client_id" translatable="false">kvWrPvw21IGTMYJLtJ0MtdY6q0onQqJY</string>
     <string name="auth_domain" translatable="false">dev-de5zi184qp82q5mx.us.auth0.com</string>
     <string name="pokedex_info">The Pokédex is an electronic device created and designed to catalog and provide information regarding the various species of Pokémon featured in the Pokémon video game, anime and manga series. The name Pokédex is a neologism including \"Pokémon\" (which itself is a portmanteau of \"pocket\" and \"monster\") and \"index\". The Japanese name is simply \"Pokémon Encyclopedia\", as it can feature every Pokémon on it, depending on the Pokédex.     This particular Pokédex shows you all the 905 Pokémon from the 8 existing generations. Scroll through all of them and find interesting data about height, weight, types,… On top of that, you can save your favorite Pokémon so they are more easily findable the next time you want to look them up.     HAVE FUN!!!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
