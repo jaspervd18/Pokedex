@@ -32,4 +32,8 @@ interface FavoriteDatabaseDao {
     // Get all Favorite Pokemon in order of Pokemon Nr
     @Query("SELECT * FROM favorite_pokemons_table ORDER BY pokemon_number")
     fun getAllFavorites(): LiveData<List<DatabaseFavorite>>
+
+    // Get the most recent added favorite Pokemon
+    @Query("SELECT * FROM favorite_pokemons_table ORDER BY pokemon_number DESC LIMIT 1")
+    suspend fun getLastPokemon(): DatabaseFavorite?
 }

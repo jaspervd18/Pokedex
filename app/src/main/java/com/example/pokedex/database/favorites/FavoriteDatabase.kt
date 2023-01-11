@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 /**
- * Room database instance for the DatabaseJokes
+ * Room database instance for the Favorite Pokemon
  **/
 @Database(entities = [DatabaseFavorite::class], version = 1, exportSchema = false)
 abstract class FavoriteDatabase : RoomDatabase() {
