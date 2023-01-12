@@ -47,7 +47,7 @@ class PokemonViewModel(val database: FavoriteDatabaseDao, application: Applicati
      */
     init {
         _saveEvent.value = false
-        counter = 1;
+        counter = 1
         getPokemonFromApi(counter)
     }
 

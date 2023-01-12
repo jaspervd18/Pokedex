@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.pokedex.R
 import com.example.pokedex.database.favorites.FavoriteDatabase
 import com.example.pokedex.databinding.FragmentPokemonBinding
+import timber.log.Timber
 
 /**
  * This fragment shows the status of the current selected Pokemon.
@@ -20,6 +21,7 @@ class PokemonFragment : Fragment() {
      * Initialize PokemonBinding.
      */
     private lateinit var binding: FragmentPokemonBinding
+
     /**
      * Initialize ViewModel.
      */
@@ -58,6 +60,43 @@ class PokemonFragment : Fragment() {
             }
         }
 
+        Timber.i("onCreate called")
+
         return binding.root
+    }
+
+    /**
+     * Lifecycle method onCreate
+     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onStart called")
+    }
+
+    /**
+     * Lifecycle method onStart
+     */
+    override fun onStart() {
+        super.onStart()
+        Timber.i("onStart called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.i("onStop called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume called")
     }
 }
