@@ -12,6 +12,8 @@ import com.example.pokedex.database.favorites.FavoriteDatabase
 import com.example.pokedex.databinding.FragmentPokemonBinding
 import timber.log.Timber
 
+const val KEY_COUNTER = "key_counter"
+
 /**
  * This fragment shows the status of the current selected Pokemon.
  */
@@ -60,21 +62,23 @@ class PokemonFragment : Fragment() {
             }
         }
 
-        Timber.i("onCreate called")
+        // Setting the current pokemon to the last visited one
+        if (savedInstanceState != null) {
+            viewModel.counter = savedInstanceState.getInt(KEY_COUNTER)
+        }
+
+        Timber.i("onCreateView called")
 
         return binding.root
     }
 
     /**
-     * Lifecycle method onCreate
+     * onSaveInstanceState to retrieve the last visited pokemon when returning to the fragment
      */
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Timber.i("onStart called")
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(KEY_COUNTER, viewModel.counter)
+        Timber.i("onSaveInstanceState called")
     }
 
     /**
@@ -85,18 +89,12 @@ class PokemonFragment : Fragment() {
         Timber.i("onStart called")
     }
 
+    /**
+     * Lifecycle method onStart
+     */
     override fun onStop() {
         super.onStop()
         Timber.i("onStop called")
     }
 
-    override fun onPause() {
-        super.onPause()
-        Timber.i("onPause called")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Timber.i("onResume called")
-    }
 }
