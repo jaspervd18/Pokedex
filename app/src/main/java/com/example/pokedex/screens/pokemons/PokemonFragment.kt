@@ -96,5 +96,4 @@ class PokemonFragment : Fragment() {
         super.onStop()
         Timber.i("onStop called")
     }
-
 }

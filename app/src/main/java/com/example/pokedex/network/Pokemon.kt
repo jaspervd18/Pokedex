@@ -23,7 +23,8 @@ data class Pokemon(
  * Types can either contain one or two slots, hence the List
  */
 data class Types(
-    val slot: Int, val type: Type
+    val slot: Int,
+    val type: Type
 )
 
 /**
@@ -31,7 +32,8 @@ data class Types(
  * The url is not used throughout the application
  */
 data class Type(
-    val name: String, val url: String
+    val name: String,
+    val url: String
 )
 
 /**

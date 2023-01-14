@@ -3,7 +3,6 @@ package com.example.pokedex.screens.pokemons
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.pokedex.database.favorites.FavoriteDatabase
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -16,7 +15,7 @@ class PokemonTest {
     var instantExecutorRule = InstantTaskExecutorRule()
 
     @Mock
-    lateinit var pokemonViewModel : PokemonViewModel
+    lateinit var pokemonViewModel: PokemonViewModel
 
     @Before
     fun initializeViewModel() {
@@ -36,5 +35,4 @@ class PokemonTest {
         pokemonViewModel.nextPokemon()
         assert(pokemonViewModel.counter == 2)
     }
-
 }

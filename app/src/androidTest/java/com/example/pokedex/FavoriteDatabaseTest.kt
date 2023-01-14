@@ -20,7 +20,6 @@ import org.junit.runner.RunWith
  * include tests. However, when building the Room, it is helpful to make sure it works before
  * adding the UI.
  */
-
 @RunWith(AndroidJUnit4::class)
 class FavoriteDatabaseTest {
 

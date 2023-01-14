@@ -33,7 +33,9 @@ class FavoritesFragment : Fragment() {
      * to enable Data Binding to observe LiveData, and sets up the RecyclerView with an adapter.
      */
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_favorites, container, false)
@@ -53,9 +55,11 @@ class FavoritesFragment : Fragment() {
         binding.lifecycleOwner = this
 
         // Filling the list with the favorites adapter
-        adapter = FavoritesAdapter(FavoritesListener { pokemonName ->
-            Toast.makeText(context, pokemonName, Toast.LENGTH_SHORT).show()
-        })
+        adapter = FavoritesAdapter(
+            FavoritesListener { pokemonName ->
+                Toast.makeText(context, pokemonName, Toast.LENGTH_SHORT).show()
+            }
+        )
         binding.favoritesList.adapter = adapter
 
         // Observe the data

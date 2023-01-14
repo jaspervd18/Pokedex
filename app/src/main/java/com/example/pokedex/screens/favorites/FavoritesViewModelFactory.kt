@@ -9,7 +9,8 @@ import com.example.pokedex.database.favorites.FavoriteDatabaseDao
  * Simple ViewModel factory that provides the database source and application context to the ViewModel.
  */
 class FavoritesViewModelFactory(
-    private val dataSource: FavoriteDatabaseDao, private val application: Application
+    private val dataSource: FavoriteDatabaseDao,
+    private val application: Application
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
