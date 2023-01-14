@@ -57,3 +57,9 @@ The app has a lot of inline comments to help understand certain methods, variabl
 Dokka is additionally used to help document and understand this application better. The Dokka [documentation](./documentation) can be found in the root of this repository.
 
 The documenatation can be best viewed from within Visual Studio Code with Live Server, for example.
+
+# Authentication
+
+There exists a Login Fragment which uses Auth0. Unfortunately there remains an unsolved mystery with so called 'production keys'.
+
+Because a simple Pokédex does not require any account/login/authentication function AND it is not required for the rubrics, the Login functionality remains but becomes obsolete.
