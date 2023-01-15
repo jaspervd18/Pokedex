@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.pokedex.R
 import com.example.pokedex.database.favorites.FavoriteDatabase
 import com.example.pokedex.databinding.FragmentFavoritesBinding
+import timber.log.Timber
 
 /**
  * This fragment shows the favorite pokemon saved in the database
@@ -68,5 +69,37 @@ class FavoritesFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    /**
+     * Lifecycle method onStart
+     */
+    override fun onStart() {
+        super.onStart()
+        Timber.i("onStart called")
+    }
+
+    /**
+     * Lifecycle method onStart
+     */
+    override fun onStop() {
+        super.onStop()
+        Timber.i("onStop called")
+    }
+
+    /**
+     * Lifecycle method onPause
+     */
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause called")
+    }
+
+    /**
+     * Lifecycle method onResume
+     */
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume called")
     }
 }

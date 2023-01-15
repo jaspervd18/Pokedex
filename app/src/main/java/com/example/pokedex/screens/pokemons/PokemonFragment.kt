@@ -96,4 +96,20 @@ class PokemonFragment : Fragment() {
         super.onStop()
         Timber.i("onStop called")
     }
+
+    /**
+     * Lifecycle method onPause
+     */
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause called")
+    }
+
+    /**
+     * Lifecycle method onResume
+     */
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume called")
+    }
 }
