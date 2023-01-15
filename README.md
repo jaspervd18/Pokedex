@@ -6,7 +6,7 @@ Are you not viewing this README from GitHub? [Click on me](https://github.com/ja
 
 Hello there fellow Pokémon lover! Are you ready to catch them all?
 
-This app, specifically build for Android, includes all 905 pokémon from the 9 existing generations. Have hours of fun (literally) going through all of them and save your favorite ones for easier access later on.
+This app, specifically build for Android, includes all 905 pokémon from the 8 existing generations. Have hours of fun (literally) going through all of them and save your favorite ones for easier access later on.
 
 Those more interested in the application and its specifications/details can read the information listed below.
 
@@ -34,9 +34,14 @@ To show a scrollable list of pokémon, I would have need to make an API call for
 
 # Testing
 
-Testing was somewhat difficult. My application doesn't really have a lot, let alone any, business logic. This makes it hard to create unit tests.
+Testing was somewhat difficult because the application doesn't really have a lot of business logic (and I had no help).
 
-The database is tested. I also wanted to test a View but I couldn't figure out how. I created a [test class](./app/src/test/java/com/example/pokedex/screens/pokemons/PokemonTest), but it doesn't work, I left it there to show that I tried, but didn't fully comprehend how or what. Sorry...
+What was tested:
+
+- The database 
+- The Pokemon ViewModel
+
+The Pokemon ViewModel test sets up the ViewModel, checks if the initial Pokémon is the Pokémon with number 1, checks if the next Pokémon is that with number 2, and checks if the previous Pokémon on initialization is still Pokémon number 1 (there does not exist a Pokémon with number 0)
 
 # Ktlint
 
