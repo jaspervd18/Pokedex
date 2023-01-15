@@ -46,9 +46,9 @@ Open a terminal and run `./gradlew ktlintCheck`, the build will succeed (normall
 
 # Lifecycle
 
-Just like testing, there isn't a whole lot which needs lifecycling. There are a few lifecycle methods implemented in the [Pokemon Fragment](./app/src/main/java/com/example/pokedex/screens/pokemons/PokemonFragment.kt) which keep the track of the last visited pokemon (with OnSaveInstances).
+Lifecycle methods are implemented in the [Pokemon Fragment](./app/src/main/java/com/example/pokedex/screens/pokemons/PokemonFragment.kt) as well in the [Favorites Fragment](./app/src/main/java/com/example/pokedex/screens/favorites/FavoritesFragment.kt). Because there isn't a whole lot that needs to be released, remembered,... only the basic lifecycle methods are implemented with log messages.
 
-It didn't seem very interesting to implement them elsewhere (or once again I just don't know how to use them properly), but I do know they exist.
+In OnCreateView, lifecycleview observers are used to keep track of certain state.
 
 # Documentation
 
@@ -60,6 +60,6 @@ The documenatation can be best viewed from within Visual Studio Code with Live S
 
 # Authentication
 
-There exists a Login Fragment which uses Auth0. Unfortunately there remains an unsolved mystery with so called 'production keys'.
+There exists a Login Fragment which uses Auth0. Unfortunately there remains an unsolved mystery with so called 'development keys'.
 
-Because a simple Pokédex does not require any account/login/authentication function AND it is not required for the rubrics, the Login functionality remains but becomes obsolete.
+Because a simple Pokédex does not require any account, login, or authentication functionality AND it is not required for the rubrics: the Login functionality stays in the application but becomes obsolete.
