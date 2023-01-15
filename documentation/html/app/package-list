@@ -86,6 +86,10 @@ $dokka.location:com.example.pokedex.screens.favorites/FavoritesAdapter/onCreateV
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment///PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/index.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/FavoritesFragment/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/-favorites-fragment.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/on-create-view.html
+$dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/onPause/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/on-pause.html
+$dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/onResume/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/on-resume.html
+$dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/onStart/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/on-start.html
+$dokka.location:com.example.pokedex.screens.favorites/FavoritesFragment/onStop/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-fragment/on-stop.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesListener///PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-listener/index.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesListener/FavoritesListener/#kotlin.Function1[kotlin.String,kotlin.Unit]/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-listener/-favorites-listener.html
 $dokka.location:com.example.pokedex.screens.favorites/FavoritesListener/clickListener/#/PointingToDeclaration/app/com.example.pokedex.screens.favorites/-favorites-listener/click-listener.html
@@ -121,6 +125,8 @@ $dokka.location:com.example.pokedex.screens.pokemons/PokemonApiStatus///Pointing
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment///PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/index.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment/PokemonFragment/#/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/-pokemon-fragment.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/on-create-view.html
+$dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment/onPause/#/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/on-pause.html
+$dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment/onResume/#/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/on-resume.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment/onSaveInstanceState/#android.os.Bundle/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/on-save-instance-state.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment/onStart/#/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/on-start.html
 $dokka.location:com.example.pokedex.screens.pokemons/PokemonFragment/onStop/#/PointingToDeclaration/app/com.example.pokedex.screens.pokemons/-pokemon-fragment/on-stop.html
