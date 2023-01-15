@@ -13,6 +13,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class PokemonCounterTest {
+
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
     private lateinit var context: Context
@@ -31,9 +32,15 @@ class PokemonCounterTest {
     }
 
     @Test
-    fun nextPokemon_shouldBe_secondPokemon() {
+    fun nextPokemonNr_shouldBe_secondPokemon() {
         pokemonViewModel.nextPokemon()
         assert(pokemonViewModel.counter == 2)
+    }
+
+    @Test
+    fun previousPokemonNr_shouldStillBe_firstPokemon() {
+        pokemonViewModel.previousPokemon()
+        assert(pokemonViewModel.counter == 1)
     }
 
 }
